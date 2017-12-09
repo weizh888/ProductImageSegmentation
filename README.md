@@ -34,6 +34,9 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 ### Creating the dataset
 
 #### Manually Labelling
+
+Create labels based on (https://shopee.sg/search/?keyword=women+apparel&subcategory).
+
 simply run
 ```
 LabelImg
