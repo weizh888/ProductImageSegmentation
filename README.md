@@ -13,13 +13,10 @@ In order to run the project, you will need Python, pip and the relative librarie
   - [Python 2.7.14 or Python 3.6.3](https://www.python.org/downloads/)
   - [LabelImg](https://github.com/tzutalin/labelImg)
       - [PyQt4](https://www.riverbankcomputing.com/software/pyqt/download)
-        ```
-        pip install PyQt4-4.11.4-cp27-cp27m-win32.whl
-        ```
+        `pip install PyQt4-4.11.4-cp27-cp27m-win32.whl`
       - [lxml](http://lxml.de/installation.html)
-        ```
-        pip install lxml
-        ```
+        `pip install lxml`
+
       Then simply run
       ```
       LabelImg
