@@ -19,14 +19,6 @@ In order to run the project, you will need Python, pip and the relative librarie
       - [lxml](http://lxml.de/installation.html)
         `pip install lxml`
 
-      Then simply run
-      ```
-      LabelImg
-      ```
-      > Open Dir, Change Save Dir, View->Autosaving
-      ```
-      labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE] (It doesn't work for now)
-      ```
   - [TensorFlow's Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
 #### Download the Application
@@ -36,3 +28,21 @@ To run a copy from the latest master branch in git you can clone the repository:
 ```
 git clone git@github.com:weizh888/ProductImageSegmentation.git
 ```
+
+## Usage
+
+### Creating the dataset
+
+#### Manually Labelling
+simply run
+```
+LabelImg
+```
+> Open Dir, Change Save Dir, View->Autosaving
+```
+labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE] (It doesn't work for now)
+```
+
+#### Generating TFRecord files for TensorFlow
+
+### Training the model
