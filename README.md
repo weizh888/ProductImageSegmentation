@@ -12,7 +12,22 @@ In order to run the project, you will need Python, pip and the relative librarie
   - [Git for windows](https://git-for-windows.github.io/)
   - [Python 2.7.14 or Python 3.6.3](https://www.python.org/downloads/)
   - [LabelImg](https://github.com/tzutalin/labelImg)
-    - Requires to install [PyQt4](https://www.riverbankcomputing.com/software/pyqt/download) and [lxml](http://lxml.de/installation.html).
+      - [PyQt4](https://www.riverbankcomputing.com/software/pyqt/download)
+        ```
+        pip install PyQt4-4.11.4-cp27-cp27m-win32.whl
+        ```
+      - [lxml](http://lxml.de/installation.html)
+        ```
+        pip install lxml
+        ```
+      Then simply run
+      ```
+      LabelImg
+      ```
+      > Open Dir, Change Save Dir, View->Autosaving
+      ```
+      labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE] (It doesn't work for now)
+      ```
   - [TensorFlow's Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
 #### Download the Application
