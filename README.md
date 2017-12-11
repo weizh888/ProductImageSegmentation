@@ -58,9 +58,9 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   1. Convert XML to CSV
 
-    ```
-    python xml_to_csv.py
-    ```
+      ```
+      python xml_to_csv.py
+      ```
   2. Split the dataset to training and testing (ratio: 4:1)
 
     ```
