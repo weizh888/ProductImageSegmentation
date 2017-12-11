@@ -38,7 +38,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 ### Creating the dataset
 
-  1. Manually Labelling
+1. Manually Labelling
 
     Create labels based on (https://shopee.sg/search/?keyword=women+apparel&subcategory).
 
@@ -52,21 +52,21 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
     python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
     ```
-  2. Use (http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html)
+2. Use (http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html)
 
 #### Generating TFRecord files for TensorFlow
 
-  1. Convert XML to CSV
+1. Convert XML to CSV
 
-      ```
-      python xml_to_csv.py
-      ```
-  2. Split the dataset to training and testing (ratio: 4:1)
+    ```
+    python xml_to_csv.py
+    ```
+2. Split the dataset to training and testing (ratio: 4:1)
 
     ```
     python split_dataset.py
     ```
-  3. Generate .tfrecords files
+3. Generate .tfrecords files
 
     ```
     py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
