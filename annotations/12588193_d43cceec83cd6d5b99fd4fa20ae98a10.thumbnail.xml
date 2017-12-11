@@ -1,0 +1,26 @@
+<annotation>
+	<folder>samples</folder>
+	<filename>12588193_d43cceec83cd6d5b99fd4fa20ae98a10.thumbnail.jpg</filename>
+	<path>C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples\12588193_d43cceec83cd6d5b99fd4fa20ae98a10.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>580</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Pants_Leggings</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>157</xmin>
+			<ymin>74</ymin>
+			<xmax>431</xmax>
+			<ymax>622</ymax>
+		</bndbox>
+	</object>
+</annotation>

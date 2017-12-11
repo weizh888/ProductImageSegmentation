@@ -10,7 +10,7 @@ In order to run the project, you will need Python, pip and the relative librarie
 #### Prerequisites
 
   - [Git for windows](https://git-for-windows.github.io/)
-  - [Python 2.7.14 or Python 3.6.3](https://www.python.org/downloads/)
+  - [Python 2 & Python 3.5+ 64-bit](https://www.python.org/downloads/)
   - [LabelImg](https://github.com/tzutalin/labelImg)
 
     Install by `pip install labelImg`
@@ -20,6 +20,11 @@ In order to run the project, you will need Python, pip and the relative librarie
         `pip install lxml`
 
   - [TensorFlow's Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
+
+    Install required libraries, such as pandas, Pillow:
+    `py -3 -m pip install pandas` or `pip3 install pandas`
+
+    `py -3 -m pip install Pillow` or `pip3 install Pillow`
 
 #### Download the Application
 
@@ -33,19 +38,36 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 ### Creating the dataset
 
-#### Manually Labelling
+  1. Manually Labelling
 
-Create labels based on (https://shopee.sg/search/?keyword=women+apparel&subcategory).
+    Create labels based on (https://shopee.sg/search/?keyword=women+apparel&subcategory).
 
-simply run
-```
-LabelImg
-```
-> Open Dir, Change Save Dir, View->Autosaving
-```
-labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE] (It doesn't work for now)
-```
+    Testd the category "Pants_Leggings" First.
+
+    simply run
+    ```
+    LabelImg
+    ```
+    > Open Dir, Change Save Dir, View->Autosaving
+    ```
+    python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
+    ```
+  2. Use (http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html)
 
 #### Generating TFRecord files for TensorFlow
 
+  1. Convert XML to CSV
+    ```
+    python xml_to_csv.py
+    ```
+  2. Split the dataset to training and testing (ratio: 4:1)
+    ```
+    python split_dataset.py
+    ```
+  3. Generate .tfrecords files
+    ```
+    py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
+    py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
+    ```
+    
 ### Training the model
