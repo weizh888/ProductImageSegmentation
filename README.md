@@ -13,7 +13,7 @@ In order to run the project, you will need Python, pip and the relative librarie
   - [Python 3.5+ 64-bit](https://www.python.org/downloads/)
   - [LabelImg](https://github.com/tzutalin/labelImg)
 
-    Install by `pip3 install labelImg`
+    Download the zipped repository directly or install by `pip3 install labelImg`, then install
       - [PyQt4](https://www.riverbankcomputing.com/software/pyqt/download)
         `pip3 install PyQt4-4.11.4-cp27-cp27m-win32.whl`
       - [lxml](http://lxml.de/installation.html)
