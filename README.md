@@ -24,6 +24,7 @@ In order to run the project, you will need Python, pip and the relative librarie
   - [TensorFlow's Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
     Install required libraries, such as pandas, Pillow:
+
     `py -3 -m pip install pandas` or `pip3 install pandas`
 
     `py -3 -m pip install Pillow` or `pip3 install Pillow`
@@ -44,7 +45,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
     Create labels based on https://shopee.sg/search/?keyword=women+apparel&subcategory.
 
-    Testd the category "Pants_Leggings" First.
+    Testd the category *Pants_Leggings* First.
 
     simply run
     ```
@@ -63,7 +64,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
     python xml_to_csv.py
     ```
-2. Split the dataset to training and testing (ratio: 4:1)
+2. Split the dataset to training and testing (default ratio: 4:1)
 
     ```
     python split_dataset.py
