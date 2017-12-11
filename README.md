@@ -48,7 +48,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
     LabelImg
     ```
-    > Open Dir, Change Save Dir, View->Autosaving
+    > Open Dir, Change Save Dir, View->Autosaving >
     ```
     python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
     ```
@@ -57,17 +57,21 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 #### Generating TFRecord files for TensorFlow
 
   1. Convert XML to CSV
+
     ```
     python xml_to_csv.py
     ```
   2. Split the dataset to training and testing (ratio: 4:1)
+
     ```
     python split_dataset.py
     ```
   3. Generate .tfrecords files
+
     ```
     py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
+
     py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
     ```
-    
+
 ### Training the model
