@@ -19,7 +19,7 @@ In order to run the project, you will need Python, pip and the relative librarie
       - [lxml](http://lxml.de/installation.html)
         `pip3 install lxml`
 
-    *Note*: Use `pip3` just in case two versions of Python are installed (Check it).
+    **Note**: Use `pip3` just in case two versions of Python are installed (Check it).
 
   - [TensorFlow's Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
@@ -42,7 +42,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 1. Manually Labelling
 
-    Create labels based on (https://shopee.sg/search/?keyword=women+apparel&subcategory).
+    Create labels based on https://shopee.sg/search/?keyword=women+apparel&subcategory.
 
     Testd the category "Pants_Leggings" First.
 
@@ -50,11 +50,11 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
     LabelImg
     ```
-    > Open Dir, Change Save Dir, View->Autosaving
+    **Open Dir, Change Save Dir, View->Autosaving**
     ```
     python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
     ```
-2. Use (http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html)
+2. Use the dataset on http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html
 
 #### Generating TFRecord files for TensorFlow
 
