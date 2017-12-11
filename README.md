@@ -10,14 +10,16 @@ In order to run the project, you will need Python, pip and the relative librarie
 #### Prerequisites
 
   - [Git for windows](https://git-for-windows.github.io/)
-  - [Python 2 & Python 3.5+ 64-bit](https://www.python.org/downloads/)
+  - [Python 3.5+ 64-bit](https://www.python.org/downloads/)
   - [LabelImg](https://github.com/tzutalin/labelImg)
 
-    Install by `pip install labelImg`
+    Install by `pip3 install labelImg`
       - [PyQt4](https://www.riverbankcomputing.com/software/pyqt/download)
-        `pip install PyQt4-4.11.4-cp27-cp27m-win32.whl`
+        `pip3 install PyQt4-4.11.4-cp27-cp27m-win32.whl`
       - [lxml](http://lxml.de/installation.html)
-        `pip install lxml`
+        `pip3 install lxml`
+
+    *Note*: Use `pip3` just in case two versions of Python are installed (Check it).
 
   - [TensorFlow's Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
@@ -48,7 +50,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
     LabelImg
     ```
-    > Open Dir, Change Save Dir, View->Autosaving >
+    > Open Dir, Change Save Dir, View->Autosaving
     ```
     python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
     ```
