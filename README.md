@@ -56,6 +56,9 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
     python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
     ```
+
+    For example, use `python labelImg.py 'C:\ProductImageSegmentation\samples' '.\data\predefined_classes.txt'`
+
 2. Use the dataset on http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html
 
 #### Generating TFRecord files for TensorFlow
