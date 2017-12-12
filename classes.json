@@ -1,0 +1,14 @@
+{
+  "Tops": 0,
+  "Dresses": 1,
+  "Pants_Leggings": 2,
+  "Outerwear": 3,
+  "Lingerie": 4,
+  "Beachwear": 5,
+  "Playsuits_Jumpsuits": 6,
+  "Skirts": 7,
+  "Others": 8,
+  "Shorts": 9,
+  "Active Wear": 10,
+  "Ethnic": 11
+}
