@@ -3,3 +3,13 @@
 python labelImg.py 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples' '.\data\predefined_classes.txt'
 
 labelImg 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples' 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\labelImg\data\predefined_classes.txt'
+
+Test the Installation of TensorFlow Object Detection API:
+py -3 object_detection/builders/model_builder_test.py
+
+py -3 C:\models\research\object_detection\train.py --train_dir train --pipeline_config_path ssd_mobilenet_v1.config
+
+
+C:\protoc\bin\protoc.exe object_detection\protos\*.proto --python_out=.
+
+C:\protoc\bin\protoc.exe --python_out=. .\object_detection\protos\anchor_generator.proto .\object_detection\protos\argmax_matcher.proto .\object_detection\protos\bipartite_matcher.proto .\object_detection\protos\box_coder.proto .\object_detection\protos\box_predictor.proto .\object_detection\protos\eval.proto .\object_detection\protos\faster_rcnn.proto .\object_detection\protos\faster_rcnn_box_coder.proto .\object_detection\protos\grid_anchor_generator.proto .\object_detection\protos\hyperparams.proto .\object_detection\protos\image_resizer.proto .\object_detection\protos\input_reader.proto .\object_detection\protos\keypoint_box_coder.proto .\object_detection\protos\losses.proto .\object_detection\protos\matcher.proto .\object_detection\protos\mean_stddev_box_coder.proto .\object_detection\protos\model.proto .\object_detection\protos\optimizer.proto .\object_detection\protos\pipeline.proto .\object_detection\protos\post_processing.proto .\object_detection\protos\preprocessor.proto .\object_detection\protos\region_similarity_calculator.proto .\object_detection\protos\square_box_coder.proto .\object_detection\protos\ssd.proto .\object_detection\protos\ssd_anchor_generator.proto .\object_detection\protos\string_int_label_map.proto .\object_detection\protos\train.proto
