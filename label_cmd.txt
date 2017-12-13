@@ -1,5 +1,3 @@
-@echo off
-
 python labelImg.py 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples' '.\data\predefined_classes.txt'
 
 labelImg 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples' 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\labelImg\data\predefined_classes.txt'
@@ -13,3 +11,49 @@ py -3 C:\models\research\object_detection\train.py --train_dir train --pipeline_
 C:\protoc\bin\protoc.exe object_detection\protos\*.proto --python_out=.
 
 C:\protoc\bin\protoc.exe --python_out=. .\object_detection\protos\anchor_generator.proto .\object_detection\protos\argmax_matcher.proto .\object_detection\protos\bipartite_matcher.proto .\object_detection\protos\box_coder.proto .\object_detection\protos\box_predictor.proto .\object_detection\protos\eval.proto .\object_detection\protos\faster_rcnn.proto .\object_detection\protos\faster_rcnn_box_coder.proto .\object_detection\protos\grid_anchor_generator.proto .\object_detection\protos\hyperparams.proto .\object_detection\protos\image_resizer.proto .\object_detection\protos\input_reader.proto .\object_detection\protos\keypoint_box_coder.proto .\object_detection\protos\losses.proto .\object_detection\protos\matcher.proto .\object_detection\protos\mean_stddev_box_coder.proto .\object_detection\protos\model.proto .\object_detection\protos\optimizer.proto .\object_detection\protos\pipeline.proto .\object_detection\protos\post_processing.proto .\object_detection\protos\preprocessor.proto .\object_detection\protos\region_similarity_calculator.proto .\object_detection\protos\square_box_coder.proto .\object_detection\protos\ssd.proto .\object_detection\protos\ssd_anchor_generator.proto .\object_detection\protos\string_int_label_map.proto .\object_detection\protos\train.proto
+
+# Assign appropriate values.
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+export PROJECT=$(gcloud config list project --format "value(core.project)")
+export YOUR_GCS_BUCKET="gs://weizh888"
+export JOB_ID="imgSeg_$(date +%Y%m%d_%H%M%S)"
+
+# Submit training job.
+gcloud ml-engine jobs submit training $JOB_ID \
+    --module-name object_detection.train \
+    --job-dir=${YOUR_GCS_BUCKET}/train \
+    --package-path ~/models/research/object_detection \
+    --staging-bucket ${YOUR_GCS_BUCKET} \
+    --region us-central1 \
+    --config object_detection/samples/cloud/cloud.yml \
+    -- \
+    --output_path ${YOUR_GCS_BUCKET}/training \
+    --eval_data_paths ${YOUR_GCS_BUCKET}/preproc/eval* \
+    --train_data_paths ${YOUR_GCS_BUCKET}/preproc/train* \
+    --pipeline_config_path=${YOUR_GCS_BUCKET}/ssd_mobilenet_v1_gcs.config
+
+# Monitor training logs.
+gcloud ml-engine jobs stream-logs $JOB_ID
+
+gcloud ml-engine jobs cancel my_job
+
+gcloud ml-engine jobs submit training object_detection \
+    --job-dir=weizh888/train \
+    --packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz \
+    --module-name object_detection.train \
+    --region us-central1 \
+    --config object_detection/samples/cloud/cloud.yml \
+    -- \
+    --train_dir=weizh888/train \
+    --pipeline_config_path=weizh888/data/ssd_mobilenet_v1_gcs.config
+ 
+gcloud ml-engine jobs submit training object_detection_eval_`date +%s` \
+    --job-dir=weizh888/train \
+    --packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz \
+    --module-name object_detection.eval \
+    --region us-central1 \
+    --scale-tier BASIC_GPU \
+    -- \
+    --checkpoint_dir=weizh888/train \
+    --eval_dir=weizh888/eval \
+    --pipeline_config_path=weizh888/data/faster_rcnn_resnet101_pets.config
