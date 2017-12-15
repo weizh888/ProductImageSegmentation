@@ -81,7 +81,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
     ```
 
-### Training the model
+### Training the Model
 
 ### Using Google Cloud Platform
   **Note**: Following [GCP documentation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_on_cloud.md)
@@ -92,7 +92,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   export YOUR_GCS_BUCKET="gs://weizh888"
   export JOB_ID="imgSeg_$(date +%s)"
   ```
-#### Submit training job.
+#### Submit Training Job
   ```
   gcloud ml-engine jobs submit training ${JOB_ID} \
       --module-name object_detection.train \
@@ -108,7 +108,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
       --train_data_paths ${YOUR_GCS_BUCKET}/preproc/train*
   ```
 
-#### Monitor training logs.
+#### Monitor Training Logs
 `gcloud ml-engine jobs stream-logs ${JOB_ID}`
 
 #### Graph Visualization
