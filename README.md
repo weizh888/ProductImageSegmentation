@@ -89,11 +89,8 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   ```
   export PROJECT=$(gcloud config list project --format "value(core.project)")
-
   export YOUR_GCS_BUCKET="gs://weizh888"
-
   export JOB_ID="imgSeg_$(date +%s)"
-
   ```
 #### Submit training job.
   ```
