@@ -27,7 +27,6 @@ In order to run the project, you will need Python, pip and the relative librarie
     Install required libraries, such as pandas, Pillow:
 
     `py -3 -m pip install pandas` or `pip3 install pandas`
-
     `py -3 -m pip install Pillow` or `pip3 install Pillow`
 
 #### Download the Application
@@ -77,7 +76,6 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
     ```
     py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
-
     py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
     ```
 
