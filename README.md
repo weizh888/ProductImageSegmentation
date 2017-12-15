@@ -82,3 +82,37 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
 
 ### Training the model
+
+### Using Google Cloud Platform
+  **Note**: Following [GCP documentation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_on_cloud.md)
+  and solve the bugs of [missing module](https://github.com/tensorflow/models/issues/2739) before submitting the jobs.
+
+  ```
+  export PROJECT=$(gcloud config list project --format "value(core.project)")
+
+  export YOUR_GCS_BUCKET="gs://weizh888"
+
+  export JOB_ID="imgSeg_$(date +%s)"
+
+  ```
+#### Submit training job.
+  ```
+  gcloud ml-engine jobs submit training ${JOB_ID} \
+      --module-name object_detection.train \
+      --job-dir=${YOUR_GCS_BUCKET}/train \
+      --packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz \
+      --staging-bucket ${YOUR_GCS_BUCKET} \
+      --region us-central1 \
+      --config object_detection/samples/cloud/cloud.yml \
+      -- \
+      --train_dir ${YOUR_GCS_BUCKET}/training \
+      --pipeline_config_path=${YOUR_GCS_BUCKET}/ssd_mobilenet_v1_gcs.config \
+      --eval_data_paths ${YOUR_GCS_BUCKET}/preproc/eval* \
+      --train_data_paths ${YOUR_GCS_BUCKET}/preproc/train*
+  ```
+
+#### Monitor training logs.
+`gcloud ml-engine jobs stream-logs ${JOB_ID}`
+
+#### Graph Visualization
+`tensorboard --logdir=${YOUR_GCS_BUCKET}/training`

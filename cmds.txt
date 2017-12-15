@@ -7,24 +7,37 @@ py -3 object_detection/builders/model_builder_test.py
 
 py -3 C:\models\research\object_detection\train.py --train_dir train --pipeline_config_path ssd_mobilenet_v1.config
 
+tensorboard -- --logdir path/to/logs
 
 C:\protoc\bin\protoc.exe object_detection\protos\*.proto --python_out=.
 
 C:\protoc\bin\protoc.exe --python_out=. .\object_detection\protos\anchor_generator.proto .\object_detection\protos\argmax_matcher.proto .\object_detection\protos\bipartite_matcher.proto .\object_detection\protos\box_coder.proto .\object_detection\protos\box_predictor.proto .\object_detection\protos\eval.proto .\object_detection\protos\faster_rcnn.proto .\object_detection\protos\faster_rcnn_box_coder.proto .\object_detection\protos\grid_anchor_generator.proto .\object_detection\protos\hyperparams.proto .\object_detection\protos\image_resizer.proto .\object_detection\protos\input_reader.proto .\object_detection\protos\keypoint_box_coder.proto .\object_detection\protos\losses.proto .\object_detection\protos\matcher.proto .\object_detection\protos\mean_stddev_box_coder.proto .\object_detection\protos\model.proto .\object_detection\protos\optimizer.proto .\object_detection\protos\pipeline.proto .\object_detection\protos\post_processing.proto .\object_detection\protos\preprocessor.proto .\object_detection\protos\region_similarity_calculator.proto .\object_detection\protos\square_box_coder.proto .\object_detection\protos\ssd.proto .\object_detection\protos\ssd_anchor_generator.proto .\object_detection\protos\string_int_label_map.proto .\object_detection\protos\train.proto
 
 # Assign appropriate values.
-export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim:`pwd`/slim/deployment
+export PYTHONPATH=$PYTHONPATH:/home/weizh888/models/research:/home/weizh888/models/research/slim
+printenv PYTHONPATH
+
+export PYTHONPATH=$PYTHONPATH:"/home/weizh888/models/research":"/home/weizh888/models/research/slim"
+export PYTHONPATH=$PYTHONPATH:"/home/weizh888/models/research/slim/deployment"
+
+# Packaging
+# From tensorflow/models/research/
+python setup.py sdist
+(cd slim && python setup.py sdist)
+
+
 export PROJECT=$(gcloud config list project --format "value(core.project)")
 export YOUR_GCS_BUCKET="gs://weizh888"
-export JOB_ID="imgSeg_$(date +%Y%m%d_%H%M%S)"
+export JOB_ID="imgSeg_$(date +%s)"
 
 # Submit training job.
-gcloud ml-engine jobs submit training $JOB_ID \
-    --module-name object_detection.train \
+gcloud ml-engine jobs submit training ${JOB_ID} \
     --job-dir=${YOUR_GCS_BUCKET}/train \
-    --package-path ~/models/research/object_detection \
-    --staging-bucket ${YOUR_GCS_BUCKET} \
+    --packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz \
+    --module-name object_detection.train \
     --region us-central1 \
+    --staging-bucket ${YOUR_GCS_BUCKET} \
     --config object_detection/samples/cloud/cloud.yml \
     -- \
     --output_path ${YOUR_GCS_BUCKET}/training \
@@ -32,10 +45,12 @@ gcloud ml-engine jobs submit training $JOB_ID \
     --train_data_paths ${YOUR_GCS_BUCKET}/preproc/train* \
     --pipeline_config_path=${YOUR_GCS_BUCKET}/ssd_mobilenet_v1_gcs.config
 
-# Monitor training logs.
-gcloud ml-engine jobs stream-logs $JOB_ID
+    --package-path ~/models/research/object_detection \
 
-gcloud ml-engine jobs cancel my_job
+# Monitor training logs.
+gcloud ml-engine jobs stream-logs ${JOB_ID}
+
+gcloud ml-engine jobs cancel ${JOB_ID}
 
 gcloud ml-engine jobs submit training object_detection \
     --job-dir=weizh888/train \

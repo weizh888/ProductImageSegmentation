@@ -1,0 +1,46 @@
+git clone https://github.com/tensorflow/models
+
+# For CPU
+pip install tensorflow
+# For GPU
+pip install tensorflow-gpu
+
+sudo apt-get install protobuf-compiler python-pil python-lxml
+sudo pip install jupyter
+sudo pip install matplotlib
+sudo apt-get install python-tk
+
+# From tensorflow/models/research/
+protoc object_detection/protos/*.proto --python_out=.
+
+# From tensorflow/models/research/
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+
+python object_detection/builders/model_builder_test.py
+
+python setup.py sdist
+(cd slim && python setup.py sdist)
+
+export PROJECT=$(gcloud config list project --format "value(core.project)")
+export YOUR_GCS_BUCKET="gs://weizh888"
+export JOB_ID="imgSeg_$(date +%s)"
+
+# Submit training job.
+gcloud ml-engine jobs submit training ${JOB_ID} \
+    --module-name object_detection.train \
+    --job-dir=${YOUR_GCS_BUCKET}/train \
+    --packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz \
+    --staging-bucket ${YOUR_GCS_BUCKET} \
+    --region us-central1 \
+    --config object_detection/samples/cloud/cloud.yml \
+    -- \
+    --train_dir ${YOUR_GCS_BUCKET}/training \
+    --pipeline_config_path=${YOUR_GCS_BUCKET}/ssd_mobilenet_v1_gcs.config \
+    --eval_data_paths ${YOUR_GCS_BUCKET}/preproc/eval* \
+    --train_data_paths ${YOUR_GCS_BUCKET}/preproc/train*
+
+# Monitor training logs.
+gcloud ml-engine jobs stream-logs ${JOB_ID}
+
+
+tensorboard --logdir=gs://weizh888/training
