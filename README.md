@@ -161,7 +161,7 @@ python object_detection/export_inference_graph.py \
 ```
 
 1. Examples in one-class models
-![Example image](/model_one_class/images/00.png | height=250)
-![Example image](/model_one_class/images/01.png | height=250)
+![Example image](/model_one_class/images/00.png){:height="250px"}
+![Example image](/model_one_class/images/01.png){:height="250px"}
 
 For more examples, check [examples](/model_one_class/images).
