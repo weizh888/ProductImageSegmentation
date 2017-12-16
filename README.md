@@ -160,4 +160,5 @@ python object_detection/export_inference_graph.py \
     --output_directory exported_model
 ```
 
-Update evaluation results for one class
+### Examples in one-class models
+![Example image](/model_one_class/images/00.png)
