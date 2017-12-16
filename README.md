@@ -82,10 +82,11 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 ### Running Locally
 1. Training the Model
-
-  `py -3 C:\models\research\object_detection\train.py ^
+  ```
+  py -3 C:\models\research\object_detection\train.py ^
     --train_dir TRAIN_DIR ^
-    --pipeline_config_path PIPELINE_CONFIG_PATH`
+    --pipeline_config_path PIPELINE_CONFIG_PATH
+  ```
 
   Graph Visualization: `tensorboard --logdir=TRAIN_DIR`
 
