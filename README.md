@@ -162,7 +162,7 @@ python object_detection/export_inference_graph.py \
 
 1. Examples in one-class models
 
-![Example image](/model_one_class/images/00.png){:height="100px"}
-![Example image](/model_one_class/images/01.png){:height="100px"}
-<img src="/model_one_class/images/01.png" width="100" height="100">
+<img src="/model_one_class/images/00.png" width="300" height="300">
+<img src="/model_one_class/images/01.png" width="300" height="300">
+
 For more examples, check [examples](/model_one_class/images).
