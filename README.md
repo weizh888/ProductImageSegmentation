@@ -81,7 +81,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 
 ### Running Locally
-1. Training the Model
+#### Train the Model
   ```
   py -3 C:\models\research\object_detection\train.py \
     --train_dir TRAIN_DIR \
@@ -90,7 +90,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   Graph Visualization: `tensorboard --logdir=TRAIN_DIR`
 
-2. Evaluate the Model
+#### Evaluate the Model
   ```
   py -3 C:\models\research\object_detection\eval.py \
     --eval_dir EVAL_DIR \
@@ -132,7 +132,7 @@ gcloud ml-engine jobs submit training ${JOB_NAME} \
 
   Graph Visualization: `tensorboard --logdir=gs://${TRAIN_DIR} --port 8080`
 
-### Evaluating the Model
+#### Evaluate the Model
 ```
 gcloud ml-engine jobs submit training imgSeg_eval_`date +%s` \
     --job-dir=gs://${TRAIN_DIR} \
@@ -147,7 +147,7 @@ gcloud ml-engine jobs submit training imgSeg_eval_`date +%s` \
 ```
   Graph Visualization: `tensorboard --logdir=gs://${EVAL_DIR} --port 8081`
 
-### Export the Model
+#### Export the Model
 
 `gsutil cp gs://weizh888/training/model.ckpt-${CHECKPOINT_NUMBER}.* ~/`
 
