@@ -83,7 +83,8 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 ### Running Locally
 #### Train the Model
   ```
-  py -3 C:\models\research\object_detection\train.py \
+  # From tensorflow\models\research\
+  py -3 object_detection\train.py \
     --train_dir TRAIN_DIR \
     --pipeline_config_path PIPELINE_CONFIG_PATH
   ```
@@ -92,7 +93,8 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 #### Evaluate the Model
   ```
-  py -3 C:\models\research\object_detection\eval.py \
+  # From tensorflow\models\research\
+  py -3 object_detection\eval.py \
     --eval_dir EVAL_DIR \
     --pipeline_config_path PIPELINE_CONFIG_PATH \
     --checkpoint_dir TRAIN_DIR
@@ -100,7 +102,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   Graph Visualization: `tensorboard --logdir=EVAL_DIR --port 6007`
 
-### Using Google Cloud Platform
+### Using Google Cloud Platform (Ubuntu)
   **Note**: Follow [GCP documentation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_on_cloud.md)
   and solve the bugs of [missing module](https://github.com/tensorflow/models/issues/2739) before submitting the jobs.
 
@@ -160,7 +162,7 @@ python object_detection/export_inference_graph.py \
     --output_directory exported_model
 ```
 
-1. Examples in one-class models
+1. Examples in one-class model
 
 <img src="/model_one_class/images/00.png" width="300" height="300"> <img src="/model_one_class/images/01.png" width="300" height="300">
 
