@@ -80,19 +80,21 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
 
 
-#### Running Locally
+### Running Locally
 1. Training the Model
+
 `py -3 C:\models\research\object_detection\train.py --train_dir TRAIN_DIR --pipeline_config_path PIPELINE_CONFIG_PATH`
 
   Graph Visualization
   `tensorboard --logdir=TRAIN_DIR`
 
 2. Evaluate the Model
+
 `py -3 C:\models\research\object_detection\eval.py --eval_dir EVAL_DIR --pipeline_config_path PIPELINE_CONFIG_PATH --checkpoint_dir TRAIN_DIR`
   Graph Visualization
   `tensorboard --logdir=EVAL_DIR --port 6007`
 
-#### Using Google Cloud Platform
+### Using Google Cloud Platform
   **Note**: Follow [GCP documentation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_on_cloud.md)
   and solve the bugs of [missing module](https://github.com/tensorflow/models/issues/2739) before submitting the jobs.
 
