@@ -80,7 +80,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
 
 
-### Running Locally
+### Running Locally (Windows 10)
 #### Train the Model
   ```
   # From tensorflow\models\research\
