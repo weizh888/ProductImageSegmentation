@@ -1,0 +1,26 @@
+<annotation>
+	<folder>samples</folder>
+	<filename>13031205_5d2b501157c75dc164202364808eba88.thumbnail.jpg</filename>
+	<path>/Users/jingyuanpan/Downloads/ProductImageSegmentation-master/samples/13031205_5d2b501157c75dc164202364808eba88.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>383</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Dresses</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>98</xmin>
+			<ymin>96</ymin>
+			<xmax>376</xmax>
+			<ymax>530</ymax>
+		</bndbox>
+	</object>
+</annotation>

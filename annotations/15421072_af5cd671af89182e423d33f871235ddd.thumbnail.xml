@@ -1,0 +1,14 @@
+<annotation>
+	<folder>samples</folder>
+	<filename>15421072_af5cd671af89182e423d33f871235ddd.thumbnail.jpg</filename>
+	<path>C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples\15421072_af5cd671af89182e423d33f871235ddd.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>501</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+</annotation>
