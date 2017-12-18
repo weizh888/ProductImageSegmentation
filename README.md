@@ -112,7 +112,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   export JOB_NAME="imgSeg_$(date +%s)"
   export TRAIN_DIR="${GCS_BUCKET}/training"
   export EVAL_DIR="${GCS_BUCKET}/evaluation"
-  export PIPELINE_CONFIG_PATH="${GCS_BUCKET}/ssd_mobilenet_v1_gcs.config"
+  export PIPELINE_CONFIG_PATH="${GCS_BUCKET}/config/ssd_mobilenet_v1_gcs.config"
   ```
 #### Submit Training Job
 ```
