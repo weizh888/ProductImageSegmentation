@@ -22,25 +22,28 @@ python setup.py sdist
 (cd slim && python setup.py sdist)
 
 export PROJECT=$(gcloud config list project --format "value(core.project)")
-export YOUR_GCS_BUCKET="gs://weizh888"
-export JOB_ID="imgSeg_$(date +%s)"
+export GCS_BUCKET="weizh888"
+export JOB_NAME="imgSeg_$(date +%s)"
+export TRAIN_DIR="${GCS_BUCKET}/training"
+export EVAL_DIR="${GCS_BUCKET}/evaluation"
+export PIPELINE_CONFIG_PATH="${GCS_BUCKET}/config/ssd_mobilenet_v1_gcs.config"
 
 # Submit training job.
-gcloud ml-engine jobs submit training ${JOB_ID} \
+gcloud ml-engine jobs submit training ${JOB_NAME} \
     --module-name object_detection.train \
-    --job-dir=${YOUR_GCS_BUCKET}/train \
+    --job-dir=gs://${TRAIN_DIR} \
     --packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz \
-    --staging-bucket ${YOUR_GCS_BUCKET} \
+    --staging-bucket gs://${GCS_BUCKET} \
     --region us-central1 \
     --config object_detection/samples/cloud/cloud.yml \
     -- \
-    --train_dir ${YOUR_GCS_BUCKET}/training \
-    --pipeline_config_path=${YOUR_GCS_BUCKET}/ssd_mobilenet_v1_gcs.config \
-    --eval_data_paths ${YOUR_GCS_BUCKET}/preproc/eval* \
-    --train_data_paths ${YOUR_GCS_BUCKET}/preproc/train*
+    --train_dir gs://${TRAIN_DIR} \
+    --pipeline_config_path=gs://${PIPELINE_CONFIG_PATH} \
+    --eval_data_paths gs://${GCS_BUCKET}/preproc/eval* \
+    --train_data_paths gs://${GCS_BUCKET}/preproc/train*
 
 # Monitor training logs.
-gcloud ml-engine jobs stream-logs ${JOB_ID}
+gcloud ml-engine jobs stream-logs ${JOB_NAME}
 
+tensorboard --logdir=gs://weizh888/training --port 8080
 
-tensorboard --logdir=gs://weizh888/training
