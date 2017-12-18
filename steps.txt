@@ -28,6 +28,8 @@ export TRAIN_DIR="${GCS_BUCKET}/training"
 export EVAL_DIR="${GCS_BUCKET}/evaluation"
 export PIPELINE_CONFIG_PATH="${GCS_BUCKET}/config/ssd_mobilenet_v1_gcs.config"
 
+export JOB_NAME="seg$(date +%H%M)"
+
 # Submit training job.
 gcloud ml-engine jobs submit training ${JOB_NAME} \
     --module-name object_detection.train \

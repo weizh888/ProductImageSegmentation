@@ -38,8 +38,14 @@ def class_text_to_int(row_label):
         return 2
     elif row_label == 'Skirts':
         return 3
+    elif row_label == 'Tops':
+        return 4
+    elif row_label == 'Shorts':
+        return 5
+    elif row_label == 'Lingerie':
+        return 6
     else:
-        None
+        return None
 
 
 def split(df, group):
