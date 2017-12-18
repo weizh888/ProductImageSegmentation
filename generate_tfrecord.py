@@ -34,8 +34,10 @@ FLAGS = flags.FLAGS
 def class_text_to_int(row_label):
     if row_label == 'Pants_Leggings':
         return 1
-    elif row_label == 'Tops':
+    elif row_label == 'Dresses':
         return 2
+    elif row_label == 'Skirts':
+        return 3
     else:
         None
 

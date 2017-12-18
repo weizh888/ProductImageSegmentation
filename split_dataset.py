@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 np.random.seed(1)
 
-full_labels = pd.read_csv('data/Pants_labels.csv')
+full_labels = pd.read_csv('data/labels.csv')
 
 grouped = full_labels.groupby('filename')
 grouped.apply(lambda x: len(x)).value_counts()
