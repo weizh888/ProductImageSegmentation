@@ -20,5 +20,10 @@ item {
 
 item {
   id: 5
+  name: 'Shorts'
+}
+
+item {
+  id: 6
   name: 'Lingerie'
 }

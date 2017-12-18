@@ -29,3 +29,4 @@ gcloud ml-engine jobs submit training object_detection_eval_`date +%s` \
     --checkpoint_dir=weizh888/train \
     --eval_dir=weizh888/eval \
     --pipeline_config_path=weizh888/data/faster_rcnn_resnet101_pets.config
+

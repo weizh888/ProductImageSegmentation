@@ -47,3 +47,5 @@ gcloud ml-engine jobs stream-logs ${JOB_NAME}
 
 tensorboard --logdir=gs://weizh888/training --port 8080
 
+# Cancel a Job
+gcloud ml-engine jobs cancel ${JOB_NAME}_eval

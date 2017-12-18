@@ -102,7 +102,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   Graph Visualization: `tensorboard --logdir=EVAL_DIR --port 6007`
 
-### Using Google Cloud Platform (Ubuntu)
+### Running on Google Cloud Platform (Ubuntu)
   **Note**: Follow [GCP documentation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_on_cloud.md)
   and solve the bugs of [missing module](https://github.com/tensorflow/models/issues/2739) before submitting the jobs.
 
@@ -136,7 +136,7 @@ gcloud ml-engine jobs submit training ${JOB_NAME} \
 
 #### Evaluate the Model
 ```
-gcloud ml-engine jobs submit training imgSeg_eval_`date +%s` \
+gcloud ml-engine jobs submit training ${JOB_NAME}_eval \
     --job-dir=gs://${TRAIN_DIR} \
     --module-name object_detection.eval \
     --packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz \
@@ -147,6 +147,8 @@ gcloud ml-engine jobs submit training imgSeg_eval_`date +%s` \
     --eval_dir=gs://${EVAL_DIR} \
     --pipeline_config_path=gs://${PIPELINE_CONFIG_PATH}
 ```
+  Monitor Training Logs: `gcloud ml-engine jobs stream-logs ${JOB_NAME}_eval`
+
   Graph Visualization: `tensorboard --logdir=gs://${EVAL_DIR} --port 8081`
 
 #### Export the Model
