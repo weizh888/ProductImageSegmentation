@@ -1,0 +1,26 @@
+<annotation>
+	<folder>samples_2</folder>
+	<filename>24172574_ff4376daee8cce21a54b318d2abf3804.thumbnail.jpg</filename>
+	<path>/Users/jingyuanpan/Downloads/ProductImageSegmentation-master/samples_2/24172574_ff4376daee8cce21a54b318d2abf3804.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Tops</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>17</xmin>
+			<ymin>1</ymin>
+			<xmax>614</xmax>
+			<ymax>444</ymax>
+		</bndbox>
+	</object>
+</annotation>

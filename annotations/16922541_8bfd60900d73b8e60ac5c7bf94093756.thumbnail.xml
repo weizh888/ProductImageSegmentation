@@ -1,0 +1,26 @@
+<annotation>
+	<folder>samples_2</folder>
+	<filename>16922541_8bfd60900d73b8e60ac5c7bf94093756.thumbnail.jpg</filename>
+	<path>/Users/jingyuanpan/Downloads/ProductImageSegmentation-master/samples_2/16922541_8bfd60900d73b8e60ac5c7bf94093756.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>480</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Pants_Leggings</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>97</xmin>
+			<ymin>12</ymin>
+			<xmax>288</xmax>
+			<ymax>331</ymax>
+		</bndbox>
+	</object>
+</annotation>

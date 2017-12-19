@@ -1,0 +1,26 @@
+<annotation>
+	<folder>samples_2</folder>
+	<filename>8954527_8ba3b20697ab0e709652835639ba2e67.thumbnail.jpg</filename>
+	<path>C:\Users\Wei Zhang\Desktop\Shopee\samples_2\8954527_8ba3b20697ab0e709652835639ba2e67.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Lingerie</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>124</xmin>
+			<ymin>239</ymin>
+			<xmax>498</xmax>
+			<ymax>451</ymax>
+		</bndbox>
+	</object>
+</annotation>

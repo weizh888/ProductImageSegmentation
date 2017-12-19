@@ -1,0 +1,38 @@
+<annotation>
+	<folder>samples_2</folder>
+	<filename>31522957_7a098060d69f3949c1694f3161a45617.thumbnail.jpg</filename>
+	<path>C:\Users\Wei Zhang\Desktop\Shopee\samples_2\31522957_7a098060d69f3949c1694f3161a45617.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>463</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Tops</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>221</xmin>
+			<ymin>213</ymin>
+			<xmax>319</xmax>
+			<ymax>293</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Skirts</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>226</xmin>
+			<ymin>284</ymin>
+			<xmax>291</xmax>
+			<ymax>364</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,38 @@
+<annotation>
+	<folder>samples_2</folder>
+	<filename>10782676_41d14e1e72b8cb0b8a40834fd0c63f53.thumbnail.jpg</filename>
+	<path>C:\Users\Wei Zhang\Desktop\Shopee\samples_2\10782676_41d14e1e72b8cb0b8a40834fd0c63f53.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>480</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Tops</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>114</xmin>
+			<ymin>141</ymin>
+			<xmax>355</xmax>
+			<ymax>375</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Pants_Leggings</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>190</xmin>
+			<ymin>355</ymin>
+			<xmax>315</xmax>
+			<ymax>541</ymax>
+		</bndbox>
+	</object>
+</annotation>

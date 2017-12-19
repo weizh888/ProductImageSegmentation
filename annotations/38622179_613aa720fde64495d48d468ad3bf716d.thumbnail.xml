@@ -1,0 +1,14 @@
+<annotation>
+	<folder>samples_2</folder>
+	<filename>38622179_613aa720fde64495d48d468ad3bf716d.thumbnail.jpg</filename>
+	<path>/Users/jingyuanpan/Downloads/ProductImageSegmentation-master/samples_2/38622179_613aa720fde64495d48d468ad3bf716d.thumbnail.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+</annotation>
