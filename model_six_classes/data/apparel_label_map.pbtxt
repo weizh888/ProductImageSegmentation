@@ -1,0 +1,29 @@
+item {
+  id: 1
+  name: 'Pants_Leggings'
+}
+
+item {
+  id: 2
+  name: 'Dresses'
+}
+
+item {
+  id: 3
+  name: 'Skirts'
+}
+
+item {
+  id: 4
+  name: 'Tops'
+}
+
+item {
+  id: 5
+  name: 'Shorts'
+}
+
+item {
+  id: 6
+  name: 'Lingerie'
+}

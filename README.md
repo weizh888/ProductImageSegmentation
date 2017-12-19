@@ -160,7 +160,7 @@ gcloud ml-engine jobs submit training ${JOB_NAME}_eval \
 python object_detection/export_inference_graph.py \
     --input_type image_tensor \
     --pipeline_config_path gs://${PIPELINE_CONFIG_PATH} \
-    --trained_checkpoint_prefix gs://${TRAIN_DIR} \
+    --trained_checkpoint_prefix gs://${TRAIN_DIR}/model.ckpt-${CHECKPOINT_NUMBER} \
     --output_directory exported_model
 ```
 
