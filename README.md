@@ -23,6 +23,7 @@ In order to run the project, you will need Python, pip and the relative librarie
     Install required libraries, such as pandas, Pillow:
 
     `py -3 -m pip install pandas` or `pip3 install pandas`
+
     `py -3 -m pip install Pillow` or `pip3 install Pillow`
 
 ### Linux (Ubuntu) Prerequisites for Google Cloud Platform
@@ -52,28 +53,24 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
     Testd the category *Pants_Leggings* First.
 
-    simply run
+    Simply run
     ```
     LabelImg
     ```
-    **Open Dir, Change Save Dir, View->Autosaving**
+    Then **Open Dir, Change Save Dir, View->Autosaving**, or run with default
     ```
     python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
     ```
-
     For example, use `python labelImg.py 'C:\ProductImageSegmentation\samples' '.\data\predefined_classes.txt'`
 
-2. Use the dataset on http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html
+2. *Propose to* use the dataset on http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html for training.
 
 #### Generating TFRecord files for TensorFlow
-
 1. Convert XML to CSV
-
     ```
     python xml_to_csv.py
     ```
 2. Split the dataset to training and testing (default ratio: 4:1)
-
     ```
     python split_dataset.py
     ```
