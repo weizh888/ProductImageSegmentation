@@ -177,7 +177,7 @@ The total loss reaches ~1.0 in the training dataset and the mAP@IoU≥0.5 reache
 
 For more examples, check [examples](/model_one_class/images).
 
-#### Examples in 6-class model
+#### Examples in six-class model
 
   The classes that are manually labeled from the examples:
   ```
