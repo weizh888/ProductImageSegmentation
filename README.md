@@ -164,8 +164,27 @@ python object_detection/export_inference_graph.py \
     --output_directory exported_model
 ```
 
+## Results
+### Total Loss and Precision
+<img src="/model_six_class/Total_Loss.PNG" width="300" height="300"> <img src="/model_six_class/mAP.png" width="300" height="300">
+
+The total loss reaches ~1.0 in the training dataset and the mAP@IoU≥0.5 reaches ~0.5 for the validation dataset. (The mAP@IoU≥0.5 reaches more than 0.9 in the one-class situation.)
+
+### Evaluation Examples
 1. Examples in one-class model
 
 <img src="/model_one_class/images/00.png" width="300" height="300"> <img src="/model_one_class/images/01.png" width="300" height="300">
 
 For more examples, check [examples](/model_one_class/images).
+
+2. Examples in 6-class model
+
+  The classes that are manually labeled from the examples:
+  ```
+  'Pants_Leggings'
+  'Dresses'
+  'Skirts'
+  'Tops'
+  'Shorts'
+  'Lingerie'
+  ```
