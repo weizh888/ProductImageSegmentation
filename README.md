@@ -194,9 +194,16 @@ For more examples, check [examples](/model_one_class/images).
   `Pants_Leggings`, `Dresses` and `Tops` are relatively easy to segment, but sometimes the model cannot identify `Dresses` and `Skirts`, `Skirts` and `Shorts`.
 
 ### Conclusion and More Thoughts
-  The possible reasons are:
+  * The datasets used for training and validation are 2000 manually labelled images from the raw .zip file. The first step was to use only one category for segmentation. Then 6 categories were used for modelling.
+
+  * The model used is based on the pre-trained [ssd_mobilenet_v1_coco](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) model from [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection), due to its fast speed. Model training part was mainly completed on google cloud platform. Some pre-testing and visualization work was done on a windows PC.
+
+  * The model was able to segment one-class situation very precisely. But on a six-class segmentation work, it didn't perform as well. There are some possible reasons:
   ```
-  1. In some scenes/images, some clothes are hard to identify even by human beings.
-  2. There are less training examples for the category of `Skirts`, `Shorts` and `Lingerie`
-  3. The model is not very tuned (due to time and computing resource limitation).
-  ``
+  1. In some scenes/images, some clothes are naturally difficult to identify even by human beings.
+  2. The images' definition is not very high, and they were resized to 300 x 300 in the model.
+  3. For some categories, such as `Skirts`, `Shorts` and `Lingerie`, the training examples are not enough.
+  4. The model is not very tuned, due to time and computing resource limitation.
+  ```
+
+  **The model still shows good potential in this clothes segmentation task. It is also possible to try other pre-trained models to see their performance.**
