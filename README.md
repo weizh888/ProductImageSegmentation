@@ -2,13 +2,9 @@
 Wait to add more information.
 
 ## Basic Installation
-
-### Windows Prerequisites
-
 In order to run the project, you will need Python, pip and the relative libraries.
 
-#### Prerequisites
-
+### Windows Prerequisites
   - [Git for windows](https://git-for-windows.github.io/)
   - [Python 3.5+ 64-bit](https://www.python.org/downloads/)
   - [LabelImg](https://github.com/tzutalin/labelImg)
@@ -20,7 +16,7 @@ In order to run the project, you will need Python, pip and the relative librarie
       - [lxml](http://lxml.de/installation.html)
         `pip3 install lxml`
 
-    **Note**: Use `pip3` just in case two versions of Python are installed (Check it).
+    **Note**: Use `pip3` just if both Python 2 and Python 3 are installed (Check it).
 
   - [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection)
 
@@ -48,7 +44,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 ## Usage
 
-### Creating the dataset
+### Creating the Dataset
 
 1. Manually Labelling
 
