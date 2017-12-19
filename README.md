@@ -36,8 +36,7 @@ In order to run the project, you will need Python, pip and the relative librarie
   ```
 
 ### Download the Application
-
-To run a copy from the latest master branch in git you can clone the repository:
+To run a copy from the latest master branch in git, you can clone the repository:
 
 ```
 git clone git@github.com:weizh888/ProductImageSegmentation.git
@@ -46,7 +45,6 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 ## Usage
 
 ### Creating the Dataset
-
 1. Manually Labelling
 
     Create labels based on https://shopee.sg/search/?keyword=women+apparel&subcategory.
@@ -75,14 +73,12 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     python split_dataset.py
     ```
 3. Generate .tfrecords files
-
     ```
     py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
     py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
     ```
 
-
-### Running Locally (Windows 10)
+### Running Locally (Windows 10 64-bit)
 #### Train the Model
   ```
   # From tensorflow\models\research\
@@ -107,7 +103,6 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 ### Running on Google Cloud Platform (Ubuntu)
   **Note**: Follow [GCP documentation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_on_cloud.md)
   and solve the bugs of [missing module](https://github.com/tensorflow/models/issues/2739) before submitting the jobs.
-
   ```
   export PROJECT=$(gcloud config list project --format "value(core.project)")
   export GCS_BUCKET="weizh888"
@@ -116,6 +111,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   export EVAL_DIR="${GCS_BUCKET}/evaluation"
   export PIPELINE_CONFIG_PATH="${GCS_BUCKET}/config/ssd_mobilenet_v1_gcs.config"
   ```
+  
 #### Submit Training Job
 ```
 gcloud ml-engine jobs submit training ${JOB_NAME} \
@@ -154,7 +150,6 @@ gcloud ml-engine jobs submit training ${JOB_NAME}_eval \
   Graph Visualization: `tensorboard --logdir=gs://${EVAL_DIR} --port 8081`
 
 #### Export the Model
-
 `gsutil cp gs://weizh888/training/model.ckpt-${CHECKPOINT_NUMBER}.* ~/`
 
 ```
