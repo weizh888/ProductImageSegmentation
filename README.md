@@ -166,7 +166,7 @@ python object_detection/export_inference_graph.py \
 
 ## Results
 ### Total Loss and Precision
-<img src="/model_six_classes/Total_Loss.PNG" width="300" height="300"> <img src="/model_six_classes/mAP.png" width="300" height="300">
+<img src="/model_six_classes/Total_Loss.PNG" width="300" height="300"> <img src="/model_six_classes/mAP.PNG" width="300" height="300">
 
 The total loss reaches ~1.0 in the training dataset and the mAP@IoU≥0.5 reaches ~0.5 for the validation dataset. (The mAP@IoU≥0.5 reaches more than 0.9 in the one-class situation.)
 
