@@ -171,13 +171,13 @@ python object_detection/export_inference_graph.py \
 The total loss reaches ~1.0 in the training dataset and the mAP@IoU≥0.5 reaches ~0.5 for the validation dataset. (The mAP@IoU≥0.5 reaches more than 0.9 in the one-class situation.)
 
 ### Evaluation Examples
-1. Examples in one-class model
+#### Examples in one-class model
 
 <img src="/model_one_class/images/00.png" width="300" height="300"> <img src="/model_one_class/images/01.png" width="300" height="300">
 
 For more examples, check [examples](/model_one_class/images).
 
-2. Examples in 6-class model
+#### Examples in 6-class model
 
   The classes that are manually labeled from the examples:
   ```
@@ -188,3 +188,15 @@ For more examples, check [examples](/model_one_class/images).
   'Shorts'
   'Lingerie'
   ```
+  <img src="/model_six_classes/images/00.png" width="300" height="300"> <img src="/model_six_classes/images/06.png" width="300" height="300">
+  <img src="/model_six_classes/images/57.png" width="300" height="300"> <img src="/model_six_classes/images/96.png" width="300" height="300">
+
+  `Pants_Leggings`, `Dresses` and `Tops` are relatively easy to segment, but sometimes the model cannot identify `Dresses` and `Skirts`, `Skirts` and `Shorts`.
+
+### Conclusion and More Thoughts
+  The possible reasons are:
+  ```
+  1. In some scenes/images, some clothes are hard to identify even by human beings.
+  2. There are less training examples for the category of `Skirts`, `Shorts` and `Lingerie`
+  3. The model is not very tuned (due to time and computing resource limitation).
+  ``
