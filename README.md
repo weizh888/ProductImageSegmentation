@@ -202,8 +202,8 @@ For more examples, check [examples](/model_one_class/images).
   ```
   1. In some scenes/images, some clothes are naturally difficult to identify even by human beings.
   2. The images' definition is not very high, and they were resized to 300 x 300 in the model.
-  3. For some categories, such as `Skirts`, `Shorts` and `Lingerie`, the training examples are not enough.
-  4. The model is not very tuned, due to time and computing resource limitation.
+  3. For some categories, such as *Skirts*, *Shorts* and *Lingerie*, the training examples are not enough.
+  4. The model is not very well tuned, due to time and computing resource limitation.
   ```
 
   **The model still shows good potential in this clothes segmentation task. It is also possible to try other pre-trained models to see their performance.**
