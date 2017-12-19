@@ -29,7 +29,16 @@ In order to run the project, you will need Python, pip and the relative librarie
     `py -3 -m pip install pandas` or `pip3 install pandas`
     `py -3 -m pip install Pillow` or `pip3 install Pillow`
 
-#### Download the Application
+### Linux (Ubuntu) Prerequisites for Google Cloud Platform
+  Most libraries have been pre-installed, but you might need to run the following to install some libraries:
+  ```
+  sudo apt-get install protobuf-compiler python-pil python-lxml
+  sudo pip install jupyter
+  sudo pip install matplotlib
+  sudo apt-get install python-tk
+  ```
+
+### Download the Application
 
 To run a copy from the latest master branch in git you can clone the repository:
 
@@ -197,7 +206,7 @@ For more examples, check [examples](/model_one_class/images).
 
   * The datasets used for training and validation are 2000 manually labelled images from the raw .zip file. The first step was to use only one category for segmentation. Then 6 categories were used for modelling.
 
-  * The model used is based on the pre-trained [ssd_mobilenet_v1_coco](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) model from [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection), due to its fast speed. Model training part was mainly completed on google cloud platform. Some pre-training and visualization work was done on a windows PC.
+  * The model used is based on the pre-trained [ssd_mobilenet_v1_coco](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) model from [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection), due to its fast speed. Model training part was mainly completed on google cloud platform. Manually labelling, visualization and some pre-training work were done on a windows PC.
 
   * The model was able to segment one-class situation very precisely. But on a six-class segmentation work, it didn't perform as well. There are some possible reasons:
   ```
