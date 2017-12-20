@@ -47,9 +47,15 @@ The image segmentation task is actually an object detection task. Based on convo
 
   > It discretizes the output space of bounding boxes into a set of **default boxes** over different aspect ratios and scales per feature map location. At prediction time, the network generates scores for the presence of each object category in each default box and produces adjustments to the box to better match the object shape. Additionally, the network combines predictions from multiple feature maps with different resolutions to naturally handle objects of various sizes.
 
+  The SSD model requires many default boxes mainly due to the reasons:
+  
+    1. Smooth L1 or L2 loss for box shape averages among likely hypotheses
+    2. Need to have enough default boxes (discrete bins) to do accurate regression
+    3. General principle for regressing complex continuous outputs with deep nets
+
   The SSD model adds several feature layers to the end of a base network, which can provide a better accuracy on objects of different scales and aspect ratios.
 
-  <img src="/others/SSD_2.png" width="500" height="200">
+  <img src="/others/SSD_2.png" width="700" height="200">
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
