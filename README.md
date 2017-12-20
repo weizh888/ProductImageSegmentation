@@ -1,6 +1,9 @@
 # ProductImageSegmentation
 Wait to add more information.
 
+Table of Contents
+[Basic Installation](## Basic Installation)
+
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
 
@@ -26,7 +29,7 @@ In order to run the project, you will need Python, pip and the relative librarie
 
     `py -3 -m pip install Pillow` or `pip3 install Pillow`
 
-### Linux (Ubuntu) Prerequisites for Google Cloud Platform
+### Linux (Ubuntu) Prerequisites on Google Cloud Platform
   Most libraries have been pre-installed, but you might need to run the following to install some libraries:
   ```
   sudo apt-get install protobuf-compiler python-pil python-lxml
