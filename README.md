@@ -23,9 +23,18 @@ The project intends to perform the image segmentation task in the “Women's App
 - [Conclusion and More Thoughts](#conclusion-and-more-thoughts)
 
 ## Model Selection
-The image segmentation task is actually an object detection task, so I decided to build a model based on the neural networks.
+The image segmentation task is actually an object detection task. Based on convolutional neural networks (CNNs), modern object detectors, such as [Faster R-CNN](https://arxiv.org/abs/1506.01497), [R-FCN](https://arxiv.org/abs/1605.06409) and [SSD](https://arxiv.org/abs/1512.02325), are able to give very good predictions.
 
-The main factor to consider is the **speed** since it is two-week project. The SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf) model is selected, and a pre-trained model with checkpoint is available [here](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
+The main factor to consider is the **speed** since it is two-week project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with checkpoint is available on [TenforFlow Object Detectoin API](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
+
+  - Speed/accuracy trade-offs for modern convolutional object detectors
+    According to Huang, J. _et al._ [paper](https://arxiv.org/pdf/1611.10012.pdf), the accuracy vs time for (meta-architecture, feature extractor) pair is following:
+
+    <img src="/others/accuracy_vs_time.png" width="400" height="400">
+
+    SSD with MobileNet is the fastest, but its mean average precision (mAP) is lower than others.
+
+
 
 
 
@@ -246,8 +255,8 @@ _**'Pants_Leggings', 'Dresses', 'Skirts', 'Tops', 'Shorts', 'Lingerie'**_.
   * The model was able to segment one-class situation very precisely. But on a six-class segmentation work, it didn't perform as well. There are some possible reasons:
 
     - In some scenes/images, some clothes are naturally difficult to identify even by human beings.
-    - Images size: they were resized to 300 x 300 in the model, it is reported that using 512 x 512 would give better results, but it will take more resource.
-    - Unbalanced classes: for some categories, such as `Skirts`, `Shorts` and `Lingerie`, the training examples are not enough.
-    - Parameter tuning: the model is not very well tuned, due to time and computing resource limitation. For example, the batch size used is 24. According to this [talk](http://presentations.cocodataset.org/Places17-GMRI.pdf), `larger batch size and smaller crop size seems to be better than smaller batch size but larger crop size`.
+    - **Input images size**: images were resized to 300 x 300 in the model. It is reported that using 512 x 512 would give better results, but it will take more resource.
+    - **Unbalanced classes**: for some categories, such as `Skirts`, `Shorts` and `Lingerie`, the training examples are not enough.
+    - **Parameter tuning**: the model is not very well tuned, due to time and computing resource limitation. For example, the batch size used is 24. According to this [talk slides](http://presentations.cocodataset.org/Places17-GMRI.pdf), `larger batch size and smaller crop size seems to be better than smaller batch size but larger crop size`. There are also some tricks mentioned in the talk.
 
-  The model still shows good potential in this clothes segmentation task. It is also possible to try other pre-trained models, such as the [faster_rcnn_nas](http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2017_11_08.tar.gz) included in the TensorFlow Object Detection API. Its `COCO mAP[^1]` is 43, compared with ssd_mobilenet_v1_coco's 21, while the training time is about _60 times slower_ (1833 ms vs. 30 ms.). Furthermore, ensembling several deep neural networks is also possible to give a try.
+    The model still shows good potential in this clothes segmentation task. It is also possible to try other pre-trained models, such as the [faster_rcnn_nas](http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2017_11_08.tar.gz) included in the TensorFlow Object Detection API. Its `COCO mAP[^1]` is 43, compared with ssd_mobilenet_v1_coco's 21, while the training time is about _60 times slower_ (1833 ms vs. 30 ms.). Furthermore, ensembling several deep neural networks is also possible to give a try.
