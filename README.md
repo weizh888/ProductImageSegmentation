@@ -2,14 +2,12 @@
 Wait to add more information.
 
 Table of Contents
-[Headers](#Headers)
 
-
-- [Basic Installation](##-Basic-Installation)
-  - [Windows Prerequisites](###-Windows-Prerequisites)
-  - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](###-Linux--Ubuntu--Prerequisites-on-Google-Cloud-Platform)
-  - [Download the Application](###-Download-the-Application)
-- [Usage](##-Usage)
+- [Basic Installation](#Basic-Installation)
+  - [Windows Prerequisites](#Windows-Prerequisites)
+  - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](#Linux-(Ubuntu)-Prerequisites-on-Google-Cloud-Platform)
+  - [Download the Application](#Download-the-Application)
+- [Usage](#Usage)
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
