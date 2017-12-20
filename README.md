@@ -101,6 +101,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   python split_dataset.py
   ```
   The summary of the segmentation samples is:
+  
   | Class | Counts_Train | Counts_Test | Total |
   | --- | --- | --- | --- |
   | Dresses | 348 | 106 | **454** |
