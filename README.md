@@ -91,11 +91,11 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     - [DeepFashion Database](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html): need to sign the [agreement](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/DeepFashionAgreement.pdf) for some dataset.
 
 #### Generate TFRecord files for TensorFlow
-1. Convert XML to CSV
+- Convert XML to CSV
   ```
   python xml_to_csv.py
   ```
-2. Split the dataset to training and testing (default ratio: 4:1)
+- Split the dataset to training and testing (default ratio: 4:1)
   The total number of labelled images is **911**. **728** images are used for training, and **183** images are used for testing.
   ```
   python split_dataset.py
@@ -103,7 +103,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   The summary of the segmentation samples is:
 
   | Class | Counts_Train | Counts_Test | Total |
-  | --- | --- | --- | --- |
+  | :---: | :---: | :---: | :---: |
   | Dresses | 348 | 106 | **454** |
   | Lingerie | 98 | 22 | **120** |
   | Pants_Leggings | 246 | 55 | **301** |
@@ -113,7 +113,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   The samples of `Skirts`, `Shorts` and `Lingerie` are much less than others, which could lead to a bad performance on the segmenation of these categories.
 
-3. Generate .tfrecords files
+- Generate .tfrecords files
   ```
   py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
   py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
