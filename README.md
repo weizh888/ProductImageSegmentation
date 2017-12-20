@@ -44,8 +44,10 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 ## Usage
 
-### Creating the Dataset
-1. Manually Labelling
+### Prepare the Training and Testing Datasets
+The images in the raw .zip file are not labeled, and I didn't find some open images that share the same categories, so I decided to manually label as many samples as I can using [LabelImg](https://github.com/tzutalin/labelImg). It is also worthy to try another annotation tool [FIAT](https://github.com/christopher5106/FastAnnotationTool) in the future.
+
+- Manually Labelling
 
     Create labels based on https://shopee.sg/search/?keyword=women+apparel&subcategory.
 
@@ -103,6 +105,8 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 ### Running on Google Cloud Platform (Ubuntu)
   **Note**: Follow [GCP documentation](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_on_cloud.md)
   and solve the bugs of [missing module](https://github.com/tensorflow/models/issues/2739) before submitting the jobs.
+
+
   ```
   export PROJECT=$(gcloud config list project --format "value(core.project)")
   export GCS_BUCKET="weizh888"
@@ -111,7 +115,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   export EVAL_DIR="${GCS_BUCKET}/evaluation"
   export PIPELINE_CONFIG_PATH="${GCS_BUCKET}/config/ssd_mobilenet_v1_gcs.config"
   ```
-  
+
 #### Submit Training Job
 ```
 gcloud ml-engine jobs submit training ${JOB_NAME} \
