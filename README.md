@@ -101,15 +101,17 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   python split_dataset.py
   ```
   The summary of the segmentation samples is:
-  
+
   | Class | Counts_Train | Counts_Test | Total |
   | --- | --- | --- | --- |
   | Dresses | 348 | 106 | **454** |
-  | Lingerie | _98_ | 22 | **120** |
+  | Lingerie | 98 | 22 | **120** |
   | Pants_Leggings | 246 | 55 | **301** |
   | Shorts | 127 | 24 | **151** |
-  | Skirts | _91_ | 18 | **109** |
+  | Skirts | 91 | 18 | **109** |
   | Tops | 380 | 71 | **451** |
+
+  The samples of `Skirts`, `Shorts` and `Lingerie` are much less than others, which could lead to a bad performance on the segmenation of these categories.
 
 3. Generate .tfrecords files
   ```
