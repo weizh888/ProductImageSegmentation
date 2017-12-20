@@ -1,11 +1,11 @@
 # ProductImageSegmentation
 Wait to add more information.
 
-Table of Contents
+## Table of Contents
 
 - [Basic Installation](#basic-installation)
   - [Windows Prerequisites](#windows-prerequisites)
-  - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](#linux--ubuntu--prerequisites-on-google-cloud-platform)
+  - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](#linux-(ubuntu)-prerequisites-on-google-cloud-platform)
   - [Download the Application](#download-the-application)
 - [Usage](#usage)
   - [Prepare the Training and Testing Datasets](#prepare-the-training-and-testing-datasets)
