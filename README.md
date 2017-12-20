@@ -1,8 +1,9 @@
 # ProductImageSegmentation
-Wait to add more information.
+The project intends to perform the image segmentation task in the “Women's Apparel” domain on a shopping website. Given an image, the software tries to detect possible category/categories of clothes on the image, and output the bounding box and corresponding tag.  
 
 ## Table of Contents
 
+- [Model Selection](#model-selection)
 - [Basic Installation](#basic-installation)
   - [Windows Prerequisites](#windows-prerequisites)
   - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](#linux-ubuntu-prerequisites-on-google-cloud-platform)
@@ -20,6 +21,13 @@ Wait to add more information.
   - [Total Loss and Precision](#total-loss-and-precision)
   - [Evaluation Examples](#evaluation-examples)
 - [Conclusion and More Thoughts](#conclusion-and-more-thoughts)
+
+## Model Selection
+The image segmentation task is actually an object detection task, so I decided to build a model based on the neural networks.
+
+The main factor to consider is the **speed** since it is two-week project. The SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf) model is selected, and a pre-trained model with checkpoint is available [here](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
+
+
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
@@ -236,11 +244,10 @@ _**'Pants_Leggings', 'Dresses', 'Skirts', 'Tops', 'Shorts', 'Lingerie'**_.
   * The model used is based on the pre-trained [ssd_mobilenet_v1_coco](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz) model from [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection), due to its fast speed. Model training part was mainly completed on google cloud platform. Manually labelling, visualization and some pre-training work were done on a windows PC.
 
   * The model was able to segment one-class situation very precisely. But on a six-class segmentation work, it didn't perform as well. There are some possible reasons:
-  ```
-  1. In some scenes/images, some clothes are naturally difficult to identify even by human beings.
-  2. The images' definition is not very high, and they were resized to 300 x 300 in the model.
-  3. For some categories, such as `Skirts`, `Shorts` and `Lingerie`, the training examples are not enough.
-  4. The model is not very well tuned, due to time and computing resource limitation.
-  ```
 
-  The model still shows good potential in this clothes segmentation task. It is also possible to try other pre-trained models, such as the [faster_rcnn_nas](http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2017_11_08.tar.gz) included in the TensorFlow Object Detection API. Its `COCO mAP[^1]` is 43, compared with ssd_mobilenet_v1_coco's 21, while the training time is about _60 times slower_ (1833 ms vs. 30 ms.).
+    - In some scenes/images, some clothes are naturally difficult to identify even by human beings.
+    - Images size: they were resized to 300 x 300 in the model, it is reported that using 512 x 512 would give better results, but it will take more resource.
+    - Unbalanced classes: for some categories, such as `Skirts`, `Shorts` and `Lingerie`, the training examples are not enough.
+    - Parameter tuning: the model is not very well tuned, due to time and computing resource limitation. For example, the batch size used is 24. According to this [talk](http://presentations.cocodataset.org/Places17-GMRI.pdf), `larger batch size and smaller crop size seems to be better than smaller batch size but larger crop size`.
+
+  The model still shows good potential in this clothes segmentation task. It is also possible to try other pre-trained models, such as the [faster_rcnn_nas](http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2017_11_08.tar.gz) included in the TensorFlow Object Detection API. Its `COCO mAP[^1]` is 43, compared with ssd_mobilenet_v1_coco's 21, while the training time is about _60 times slower_ (1833 ms vs. 30 ms.). Furthermore, ensembling several deep neural networks is also possible to give a try.
