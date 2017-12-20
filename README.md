@@ -9,7 +9,12 @@ Wait to add more information.
   - [Download the Application](#download-the-application)
 - [Usage](#usage)
   - [Prepare the Training and Testing Datasets](#prepare-the-training-and-testing-datasets)
-  - [Running Locally (Windows 10 64-bit)][#running-locally-windows-10-64-bit]
+  - [Running Locally (Windows 10 64-bit)](#running-locally-windows-10-64-bit)
+    - [Train the Model](#train-the-model)
+    - [Evaluate the Model](#evaluate-the-model)
+  - [Running on Google Cloud Platform (Ubuntu)](#running-on-google-cloud-platform-(ubuntu))
+    - [Submit training job](#submit-training-job)
+    - [Evaluate the Model](#evaluate-the-model)
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
@@ -59,7 +64,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   It is also worthy to try another annotation tool [FIAT](https://github.com/christopher5106/FastAnnotationTool) in the future, which saves the annotations in the RotatedRect format (`path,class,center_x,center_y,w,h,o`), instead of the Rect format (`path,class,x,y,w,h`).
 
-#### Manually Labelling
+#### Manually labelling
 
   Create labels based on https://shopee.sg/search/?keyword=women+apparel&subcategory.
 
@@ -96,7 +101,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
     ```
 
 ### Running Locally (Windows 10 64-bit)
-#### Train the Model
+#### Train the model
   ```
   # From tensorflow\models\research\
   py -3 object_detection\train.py \
@@ -106,7 +111,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   Graph Visualization: `tensorboard --logdir=TRAIN_DIR`
 
-#### Evaluate the Model
+#### Evaluate the model
   ```
   # From tensorflow\models\research\
   py -3 object_detection\eval.py \
@@ -131,7 +136,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   export PIPELINE_CONFIG_PATH="${GCS_BUCKET}/config/ssd_mobilenet_v1_gcs.config"
   ```
 
-#### Submit Training Job
+#### Submit training job
 ```
 gcloud ml-engine jobs submit training ${JOB_NAME} \
     --module-name object_detection.train \
@@ -151,7 +156,7 @@ gcloud ml-engine jobs submit training ${JOB_NAME} \
 
   Graph Visualization: `tensorboard --logdir=gs://${TRAIN_DIR} --port 8080`
 
-#### Evaluate the Model
+#### Evaluate the model
 ```
 gcloud ml-engine jobs submit training ${JOB_NAME}_eval \
     --job-dir=gs://${TRAIN_DIR} \
@@ -168,7 +173,7 @@ gcloud ml-engine jobs submit training ${JOB_NAME}_eval \
 
   Graph Visualization: `tensorboard --logdir=gs://${EVAL_DIR} --port 8081`
 
-#### Export the Model
+#### Export the model
 `gsutil cp gs://weizh888/training/model.ckpt-${CHECKPOINT_NUMBER}.* ~/`
 
 ```
