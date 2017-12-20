@@ -62,7 +62,7 @@ The image segmentation task is actually an object detection task. Based on convo
   - Configuration
     Configuration examples for using TensorFlow Object Detection API are [here](https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs). The configuration file used in this project is based on [ssd_mobilenet_v1_coco.config](https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_mobilenet_v1_coco.config).
 
-    Parameters for training, which can be further tuned/optimized:
+    **Parameters** for training, which can be further tuned/optimized:
     ```
     train_config: {
     batch_size: 24
@@ -92,7 +92,7 @@ The image segmentation task is actually an object detection task. Based on convo
       }
     }
     ```
-    There are also more options available [described](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/preprocessor.proto).
+    There are also more options available [here](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/preprocessor.proto).
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
