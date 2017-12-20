@@ -233,4 +233,4 @@ For more examples, check [examples](/model_one_class/images).
   4. The model is not very well tuned, due to time and computing resource limitation.
   ```
 
-  **The model still shows good potential in this clothes segmentation task. It is also possible to try other pre-trained models to see their performance.**
+  The model still shows good potential in this clothes segmentation task. It is also possible to try other pre-trained models, such as the [faster_rcnn_nas](http://download.tensorflow.org/models/object_detection/faster_rcnn_nas_coco_2017_11_08.tar.gz) included in the TensorFlow Object Detection API. Its `COCO mAP[^1]` is 43, compared with ssd_mobilenet_v1_coco's 21, while the training time is about _60 times slower_ (1833 ms vs. 30 ms.).
