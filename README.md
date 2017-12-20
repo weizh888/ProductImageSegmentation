@@ -53,21 +53,24 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   Create labels based on https://shopee.sg/search/?keyword=women+apparel&subcategory.
 
-    Testd the category _**Pants_Leggings**_ First.
+  Testd the category _**Pants_Leggings**_ First.
 
-    Simply run
-    ```
-    LabelImg
-    ```
-    Then **Open Dir, Change Save Dir, View->Autosaving**, or run with default
-    ```
-    python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
-    ```
-    For example, use `python labelImg.py 'C:\ProductImageSegmentation\samples' '.\data\predefined_classes.txt'`
+  Simply run
+  ```
+  LabelImg
+  ```
+  Then **Open Dir, Change Save Dir, View->Autosaving**, or run with default
+  ```
+  python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
+  ```
+  For example, use `python labelImg.py 'C:\ProductImageSegmentation\samples' '.\data\predefined_classes.txt'`
 
-2. *Propose to* use the dataset on http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html for training.
+  - Using Open Sources for Model Training (*Propose to do*)
+  I found two datasets that are useful for this project:
+    - http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html: can be downloaded directly.
+    - [DeepFashion Database](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html): need to sign the agreement for some dataset.
 
-#### Generating TFRecord files for TensorFlow
+#### Generate TFRecord files for TensorFlow
 1. Convert XML to CSV
     ```
     python xml_to_csv.py
