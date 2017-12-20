@@ -25,7 +25,7 @@ The project intends to perform the image segmentation task in the “Women's App
 ## Model Selection
 The image segmentation task is actually an object detection task. Based on convolutional neural networks (CNNs), modern object detectors, such as [Faster R-CNN](https://arxiv.org/abs/1506.01497), [R-FCN](https://arxiv.org/abs/1605.06409) and [SSD](https://arxiv.org/abs/1512.02325), are able to give very good predictions.
 
-The main factor to consider is the **speed** since it is two-week project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with checkpoint is available on [TenforFlow Object Detectoin API](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
+**Speed** is the main factor to be considered for model selection given the time constraint of this project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with checkpoint is available on [TenforFlow Object Detectoin API](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
 
 ### Speed/accuracy trade-offs for different convolutional object detectors
 
@@ -39,15 +39,18 @@ The main factor to consider is the **speed** since it is two-week project. The m
 
   The SSD meta-architecture is as follows (cited from [paper](https://arxiv.org/pdf/1611.10012.pdf)):
 
-  <img src="/others/SSD.png" width="500" height="250">
+  <img src="/others/SSD_1.png" width="500" height="250">
 
-  SSD is simple and straightforward since:
+  SSD is **simple** and **straightforward** since:
 
   > SSD is simple relative to methods that require object proposals because it completely eliminates proposal generation and subsequent pixel or feature resampling stages and encapsulates all computation in a single network.
 
   > It discretizes the output space of bounding boxes into a set of **default boxes** over different aspect ratios and scales per feature map location. At prediction time, the network generates scores for the presence of each object category in each default box and produces adjustments to the box to better match the object shape. Additionally, the network combines predictions from multiple feature maps with different resolutions to naturally handle objects of various sizes.
 
-  
+  The SSD model adds several feature layers to the end of a base network, which can provide a better accuracy on objects of different scales and aspect ratios.
+
+  <img src="/others/SSD_2.png" width="500" height="200">
+
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
 
