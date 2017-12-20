@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 """
 Usage:
   # From tensorflow/models/
@@ -7,6 +9,7 @@ Usage:
   # Create test data:
   py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
 """
+
 from __future__ import division
 from __future__ import print_function
 from __future__ import absolute_import
@@ -16,8 +19,8 @@ import io
 import pandas as pd
 import tensorflow as tf
 import sys
-sys.path.append("C:\\models\\research")
-sys.path.append("C:\\models\\research\\object_detection\\utils")
+sys.path.append('C:\\models\\research')
+sys.path.append('C:\\models\\research\\object_detection\\utils')
 
 from PIL import Image
 from object_detection.utils import dataset_util
@@ -28,7 +31,6 @@ flags = tf.app.flags
 flags.DEFINE_string('csv_input', '', 'Path to the CSV input')
 flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
 FLAGS = flags.FLAGS
-
 
 # TO-DO replace this with label map
 def class_text_to_int(row_label):
@@ -51,12 +53,14 @@ def class_text_to_int(row_label):
 def split(df, group):
     data = namedtuple('data', ['filename', 'object'])
     gb = df.groupby(group)
-    return [data(filename, gb.get_group(x)) for filename, x in zip(gb.groups.keys(), gb.groups)]
+    return [data(filename, gb.get_group(x)) for (filename, x) in
+            zip(gb.groups.keys(), gb.groups)]
 
 
 def create_tf_example(group, path):
     # print(path)
-    with tf.gfile.GFile(os.path.join(path, '{}'.format(group.filename)), 'rb') as fid:
+    with tf.gfile.GFile(os.path.join(path,
+                        '{}'.format(group.filename)), 'rb') as fid:
         encoded_jpg = fid.read()
     encoded_jpg_io = io.BytesIO(encoded_jpg)
     image = Image.open(encoded_jpg_io)
