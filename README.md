@@ -4,6 +4,8 @@ The project intends to perform the image segmentation task in the “Women's App
 ## Table of Contents
 
 - [Model Selection](#model-selection)
+  - [Speed/Accuracy Trade-offs](#speed/accuracy-trade-offs)
+  - [SSD Meta-architecture](#ssd-meta-architecture)
 - [Basic Installation](#basic-installation)
   - [Windows Prerequisites](#windows-prerequisites)
   - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](#linux-ubuntu-prerequisites-on-google-cloud-platform)
@@ -27,7 +29,7 @@ The image segmentation task is actually an object detection task. Based on convo
 
 **Speed** is the main factor to be considered for model selection given the time constraint of this project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with checkpoint is available on [TenforFlow Object Detectoin API](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
 
-### Speed/accuracy trade-offs for different convolutional object detectors
+### Speed/Accuracy Trade-offs
 
   According to Huang, J. _et al._ [paper](https://arxiv.org/pdf/1611.10012.pdf), the accuracy vs. time on COCO for (meta-architecture, feature extractor) pair is as follows:
 
@@ -35,7 +37,7 @@ The image segmentation task is actually an object detection task. Based on convo
 
   SSD with MobileNet is the fastest, but its mean average precision (mAP) is lower than others.
 
-### SSD meta-architecture
+### SSD Meta-architecture
 
   The SSD meta-architecture is as follows (cited from [paper](https://arxiv.org/pdf/1611.10012.pdf)):
 
@@ -47,8 +49,8 @@ The image segmentation task is actually an object detection task. Based on convo
 
   > It discretizes the output space of bounding boxes into a set of **default boxes** over different aspect ratios and scales per feature map location. At prediction time, the network generates scores for the presence of each object category in each default box and produces adjustments to the box to better match the object shape. Additionally, the network combines predictions from multiple feature maps with different resolutions to naturally handle objects of various sizes.
 
-  The SSD model requires many default boxes mainly due to the reasons:
-  
+  The SSD model requires many **default boxes** mainly due to the reasons:
+
     1. Smooth L1 or L2 loss for box shape averages among likely hypotheses
     2. Need to have enough default boxes (discrete bins) to do accurate regression
     3. General principle for regressing complex continuous outputs with deep nets
@@ -56,6 +58,40 @@ The image segmentation task is actually an object detection task. Based on convo
   The SSD model adds several feature layers to the end of a base network, which can provide a better accuracy on objects of different scales and aspect ratios.
 
   <img src="/others/SSD_2.png" width="700" height="200">
+
+  - Configuration
+    Configuration examples for using TensorFlow Object Detection API are https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs. The configuration file used in this project is based on [ssd_mobilenet_v1_coco.config](https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_mobilenet_v1_coco.config).
+
+    Parameters for training, which can be further tuned/optimized:
+    ```
+    train_config: {
+    batch_size: 24
+    optimizer {
+      rms_prop_optimizer: {
+        learning_rate: {
+          exponential_decay_learning_rate {
+            initial_learning_rate: 0.004
+            decay_steps: 800720
+            decay_factor: 0.95
+          }
+        }
+        momentum_optimizer_value: 0.9
+        decay: 0.9
+        epsilon: 1.0
+      }
+    }
+    ```
+    Data augmentation is also defined:
+    ```
+    data_augmentation_options {
+      random_horizontal_flip {
+      }
+    }
+    data_augmentation_options {
+      ssd_random_crop {
+      }
+    }
+    ```
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
