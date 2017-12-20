@@ -2,6 +2,8 @@
 Wait to add more information.
 
 Table of Contents
+[Headers](#Headers)
+
 
 - [Basic Installation](##-Basic-Installation)
   - [Windows Prerequisites](###-Windows-Prerequisites)
@@ -80,15 +82,15 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 #### Generate TFRecord files for TensorFlow
 1. Convert XML to CSV
-    ```python
+    ```
     python xml_to_csv.py
     ```
 2. Split the dataset to training and testing (default ratio: 4:1)
-    ```python
+    ```
     python split_dataset.py
     ```
 3. Generate .tfrecords files
-    ```python
+    ```
     py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
     py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
     ```
