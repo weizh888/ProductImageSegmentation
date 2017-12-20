@@ -2,7 +2,7 @@
 Wait to add more information.
 
 Table of Contents
-[Basic Installation](## Basic Installation)
+[Basic Installation](##-Basic-Installation)
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
@@ -31,7 +31,7 @@ In order to run the project, you will need Python, pip and the relative librarie
 
 ### Linux (Ubuntu) Prerequisites on Google Cloud Platform
   Most libraries have been pre-installed, but you might need to run the following to install some libraries:
-  ```
+  ```python
   sudo apt-get install protobuf-compiler python-pil python-lxml
   sudo pip install jupyter
   sudo pip install matplotlib
