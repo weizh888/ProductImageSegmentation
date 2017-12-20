@@ -4,7 +4,7 @@ The project intends to perform the image segmentation task in the “Women's App
 ## Table of Contents
 
 - [Model Selection](#model-selection)
-  - [Speed/Accuracy Trade-offs](#speed-accuracy-trade-offs)
+  - [Speed-Accuracy Tradeoff](#speed-accuracy-tradeoff)
   - [SSD Meta-architecture](#ssd-meta-architecture)
 - [Basic Installation](#basic-installation)
   - [Windows Prerequisites](#windows-prerequisites)
@@ -29,7 +29,7 @@ The image segmentation task is actually an object detection task. Based on convo
 
 **Speed** is the main factor to be considered for model selection given the time constraint of this project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with checkpoint is available on [TenforFlow Object Detectoin API](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
 
-### Speed/Accuracy Trade-offs
+### Speed-Accuracy Tradeoff
 
   According to Huang, J. _et al._ [paper](https://arxiv.org/pdf/1611.10012.pdf), the accuracy vs. time on COCO for (meta-architecture, feature extractor) pair is as follows:
 
