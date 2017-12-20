@@ -92,18 +92,29 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 #### Generate TFRecord files for TensorFlow
 1. Convert XML to CSV
-    ```
-    python xml_to_csv.py
-    ```
+  ```
+  python xml_to_csv.py
+  ```
 2. Split the dataset to training and testing (default ratio: 4:1)
-    ```
-    python split_dataset.py
-    ```
+  The total number of labelled images is **911**. **728** images are used for training, and **183** images are used for testing.
+  ```
+  python split_dataset.py
+  ```
+  The summary of the segmentation samples is:
+  | Class | Counts_Train | Counts_Test | Total |
+  | --- | --- | --- | --- |
+  | Dresses | 348 | 106 | **454** |
+  | Lingerie | _98_ | 22 | **120** |
+  | Pants_Leggings | 246 | 55 | **301** |
+  | Shorts | 127 | 24 | **151** |
+  | Skirts | _91_ | 18 | **109** |
+  | Tops | 380 | 71 | **451** |
+
 3. Generate .tfrecords files
-    ```
-    py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
-    py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
-    ```
+  ```
+  py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
+  py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
+  ```
 
 ### Running Locally (Windows 10 64-bit)
 Set or replace the `TRAIN_DIR`, `EVAL_DIR` and `PIPELINE_CONFIG_PATH` first.
@@ -219,7 +230,7 @@ _**'Pants_Leggings', 'Dresses', 'Skirts', 'Tops', 'Shorts', 'Lingerie'**_.
 
   * The datasets used for training and validation are 2000 manually labelled images from the raw .zip file. The first step was to use only one category for segmentation. Then 6 categories were used for modelling.
 
-  * The model used is based on the pre-trained [ssd_mobilenet_v1_coco](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) model from [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection), due to its fast speed. Model training part was mainly completed on google cloud platform. Manually labelling, visualization and some pre-training work were done on a windows PC.
+  * The model used is based on the pre-trained [ssd_mobilenet_v1_coco](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz) model from [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection), due to its fast speed. Model training part was mainly completed on google cloud platform. Manually labelling, visualization and some pre-training work were done on a windows PC.
 
   * The model was able to segment one-class situation very precisely. But on a six-class segmentation work, it didn't perform as well. There are some possible reasons:
   ```
