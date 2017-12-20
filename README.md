@@ -2,7 +2,12 @@
 Wait to add more information.
 
 Table of Contents
-[Basic Installation](##-Basic-Installation)
+
+- [Basic Installation](##-Basic-Installation)
+  - [Windows Prerequisites](###-Windows-Prerequisites)
+  - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](###-Linux--Ubuntu--Prerequisites-on-Google-Cloud-Platform)
+  - [Download the Application](###-Download-the-Application)
+- [Usage](##-Usage)
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
@@ -31,7 +36,7 @@ In order to run the project, you will need Python, pip and the relative librarie
 
 ### Linux (Ubuntu) Prerequisites on Google Cloud Platform
   Most libraries have been pre-installed, but you might need to run the following to install some libraries:
-  ```python
+  ```
   sudo apt-get install protobuf-compiler python-pil python-lxml
   sudo pip install jupyter
   sudo pip install matplotlib
@@ -63,7 +68,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
   LabelImg
   ```
   Then **Open Dir, Change Save Dir, View->Autosaving**, or run with default
-  ```
+  ```python
   python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
   ```
   For example, use `python labelImg.py 'C:\ProductImageSegmentation\samples' '.\data\predefined_classes.txt'`
@@ -75,15 +80,15 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
 #### Generate TFRecord files for TensorFlow
 1. Convert XML to CSV
-    ```
+    ```python
     python xml_to_csv.py
     ```
 2. Split the dataset to training and testing (default ratio: 4:1)
-    ```
+    ```python
     python split_dataset.py
     ```
 3. Generate .tfrecords files
-    ```
+    ```python
     py -3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
     py -3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
     ```
