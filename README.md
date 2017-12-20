@@ -27,24 +27,27 @@ The image segmentation task is actually an object detection task. Based on convo
 
 The main factor to consider is the **speed** since it is two-week project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with checkpoint is available on [TenforFlow Object Detectoin API](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
 
-  - Speed/accuracy trade-offs for different convolutional object detectors
+### Speed/accuracy trade-offs for different convolutional object detectors
 
-    According to Huang, J. _et al._ [paper](https://arxiv.org/pdf/1611.10012.pdf), the accuracy vs. time on COCO for (meta-architecture, feature extractor) pair is as follows:
+  According to Huang, J. _et al._ [paper](https://arxiv.org/pdf/1611.10012.pdf), the accuracy vs. time on COCO for (meta-architecture, feature extractor) pair is as follows:
 
-    <img src="/others/accuracy_vs_time.png" width="600" height="400">
+  <img src="/others/accuracy_vs_time.png" width="600" height="400">
 
-    SSD with MobileNet is the fastest, but its mean average precision (mAP) is lower than others.
+  SSD with MobileNet is the fastest, but its mean average precision (mAP) is lower than others.
 
-  - SSD meta-architecture
+### SSD meta-architecture
 
-    The SSD meta-architecture is as follows (cited from [paper](https://arxiv.org/pdf/1611.10012.pdf)):
+  The SSD meta-architecture is as follows (cited from [paper](https://arxiv.org/pdf/1611.10012.pdf)):
 
-    <img src="/others/SSD.png" width="600" height="300">
+  <img src="/others/SSD.png" width="500" height="250">
 
+  SSD is simple and straightforward since:
 
+  > SSD is simple relative to methods that require object proposals because it completely eliminates proposal generation and subsequent pixel or feature resampling stages and encapsulates all computation in a single network.
 
+  > It discretizes the output space of bounding boxes into a set of **default boxes** over different aspect ratios and scales per feature map location. At prediction time, the network generates scores for the presence of each object category in each default box and produces adjustments to the box to better match the object shape. Additionally, the network combines predictions from multiple feature maps with different resolutions to naturally handle objects of various sizes.
 
-
+  
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
 
