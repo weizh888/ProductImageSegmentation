@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 import numpy as np
 import pandas as pd
 np.random.seed(1)
@@ -31,3 +32,16 @@ test = pd.concat([grouped_list[i] for i in test_index])
 
 train.to_csv('data/train_labels.csv', index=None)
 test.to_csv('data/test_labels.csv', index=None)
+
+# Summary of training dataset and testing dataset
+
+train_summary = train.groupby('class'
+                              ).size().reset_index(name='counts_train')
+test_summary = test.groupby('class'
+                            ).size().reset_index(name='counts_test')
+all_summary = pd.merge(train_summary, test_summary)
+all_summary['total'] = all_summary.apply(lambda x: x['counts_train'] \
+        + x['counts_test'], axis=1)
+
+all_summary.to_csv('data/summary.csv', index=None)
+print(all_summary)
