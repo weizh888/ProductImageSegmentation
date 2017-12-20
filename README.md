@@ -4,10 +4,12 @@ Wait to add more information.
 Table of Contents
 
 - [Basic Installation](#basic-installation)
-  - [Windows Prerequisites](#Windows-Prerequisites)
-  - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](#Linux-(Ubuntu)-Prerequisites-on-Google-Cloud-Platform)
-  - [Download the Application](#Download-the-Application)
+  - [Windows Prerequisites](#windows-prerequisites)
+  - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](#linux--ubuntu--prerequisites-on-google-cloud-platform)
+  - [Download the Application](#download-the-application)
 - [Usage](#usage)
+  - [Prepare the Training and Testing Datasets](#prepare-the-training-and-testing-datasets)
+  - [Running Locally (Windows 10 64-bit)][#running-locally-windows-10-64-bit]
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
@@ -57,7 +59,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   It is also worthy to try another annotation tool [FIAT](https://github.com/christopher5106/FastAnnotationTool) in the future, which saves the annotations in the RotatedRect format (`path,class,center_x,center_y,w,h,o`), instead of the Rect format (`path,class,x,y,w,h`).
 
-- Manually Labelling
+#### Manually Labelling
 
   Create labels based on https://shopee.sg/search/?keyword=women+apparel&subcategory.
 
