@@ -207,14 +207,14 @@ For more examples, check [examples](/model_one_class/images).
 #### Examples in six-class model
 
   The classes that are manually labeled from the examples:
-  ```
+  >
   'Pants_Leggings'
   'Dresses'
   'Skirts'
   'Tops'
   'Shorts'
   'Lingerie'
-  ```
+  
   <img src="/model_six_classes/images/00.png" width="300" height="300"> <img src="/model_six_classes/images/06.png" width="300" height="300">
   <img src="/model_six_classes/images/57.png" width="300" height="300"> <img src="/model_six_classes/images/96.png" width="300" height="300">
 
@@ -230,7 +230,7 @@ For more examples, check [examples](/model_one_class/images).
   ```
   1. In some scenes/images, some clothes are naturally difficult to identify even by human beings.
   2. The images' definition is not very high, and they were resized to 300 x 300 in the model.
-  3. For some categories, such as _Skirts_, `Shorts` and `Lingerie`, the training examples are not enough.
+  3. For some categories, such as `Skirts`, `Shorts` and `Lingerie`, the training examples are not enough.
   4. The model is not very well tuned, due to time and computing resource limitation.
   ```
 
