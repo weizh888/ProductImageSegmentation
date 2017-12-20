@@ -4,7 +4,7 @@ The project intends to perform the image segmentation task in the “Women's App
 ## Table of Contents
 
 - [Model Selection](#model-selection)
-  - [Speed/Accuracy Trade-offs](#speed/accuracy-trade-offs)
+  - [Speed/Accuracy Trade-offs](#speed-accuracy-trade-offs)
   - [SSD Meta-architecture](#ssd-meta-architecture)
 - [Basic Installation](#basic-installation)
   - [Windows Prerequisites](#windows-prerequisites)
@@ -81,7 +81,7 @@ The image segmentation task is actually an object detection task. Based on convo
       }
     }
     ```
-    Data augmentation is also defined:
+    **Data augmentation** techniques are also defined:
     ```
     data_augmentation_options {
       random_horizontal_flip {
@@ -92,6 +92,7 @@ The image segmentation task is actually an object detection task. Based on convo
       }
     }
     ```
+    There are also more options available [described](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/preprocessor.proto).
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
