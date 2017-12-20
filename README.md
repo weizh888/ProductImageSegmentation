@@ -6,6 +6,7 @@ The project intends to perform the image segmentation task in the “Women's App
 - [Model Selection](#model-selection)
   - [Speed-Accuracy Tradeoff](#speed-accuracy-tradeoff)
   - [SSD Meta-architecture](#ssd-meta-architecture)
+  - [Configuration](#configuration)
 - [Basic Installation](#basic-installation)
   - [Windows Prerequisites](#windows-prerequisites)
   - [Linux (Ubuntu) Prerequisites on Google Cloud Platform](#linux-ubuntu-prerequisites-on-google-cloud-platform)
@@ -59,40 +60,41 @@ The image segmentation task is actually an object detection task. Based on convo
 
   <img src="/others/SSD_2.png" width="700" height="200">
 
-  - Configuration
-    Configuration examples for using TensorFlow Object Detection API are [here](https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs). The configuration file used in this project is based on [ssd_mobilenet_v1_coco.config](https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_mobilenet_v1_coco.config).
+### Configuration
 
-    **Parameters** for training, which can be further tuned/optimized:
-    ```
-    train_config: {
-    batch_size: 24
-    optimizer {
-      rms_prop_optimizer: {
-        learning_rate: {
-          exponential_decay_learning_rate {
-            initial_learning_rate: 0.004
-            decay_steps: 800720
-            decay_factor: 0.95
-          }
+  Configuration examples for using TensorFlow Object Detection API are [here](https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs). The configuration file used in this project is based on [ssd_mobilenet_v1_coco.config](https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_mobilenet_v1_coco.config).
+
+  **Parameters** for training, which can be further tuned/optimized:
+  ```
+  train_config: {
+  batch_size: 24
+  optimizer {
+    rms_prop_optimizer: {
+      learning_rate: {
+        exponential_decay_learning_rate {
+          initial_learning_rate: 0.004
+          decay_steps: 800720
+          decay_factor: 0.95
         }
-        momentum_optimizer_value: 0.9
-        decay: 0.9
-        epsilon: 1.0
       }
+      momentum_optimizer_value: 0.9
+      decay: 0.9
+      epsilon: 1.0
     }
-    ```
-    **Data augmentation** techniques are also defined:
-    ```
-    data_augmentation_options {
-      random_horizontal_flip {
-      }
+  }
+  ```
+  **Data augmentation** techniques are also defined:
+  ```
+  data_augmentation_options {
+    random_horizontal_flip {
     }
-    data_augmentation_options {
-      ssd_random_crop {
-      }
+  }
+  data_augmentation_options {
+    ssd_random_crop {
     }
-    ```
-    There are also more options available [here](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/preprocessor.proto).
+  }
+  ```
+  There are also more options available [here](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/preprocessor.proto).
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
