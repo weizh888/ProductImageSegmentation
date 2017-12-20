@@ -27,12 +27,19 @@ The image segmentation task is actually an object detection task. Based on convo
 
 The main factor to consider is the **speed** since it is two-week project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with checkpoint is available on [TenforFlow Object Detectoin API](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
 
-  - Speed/accuracy trade-offs for modern convolutional object detectors
-    According to Huang, J. _et al._ [paper](https://arxiv.org/pdf/1611.10012.pdf), the accuracy vs time for (meta-architecture, feature extractor) pair is following:
+  - Speed/accuracy trade-offs for different convolutional object detectors
 
-    <img src="/others/accuracy_vs_time.png" width="400" height="400">
+    According to Huang, J. _et al._ [paper](https://arxiv.org/pdf/1611.10012.pdf), the accuracy vs. time on COCO for (meta-architecture, feature extractor) pair is as follows:
+
+    <img src="/others/accuracy_vs_time.png" width="600" height="400">
 
     SSD with MobileNet is the fastest, but its mean average precision (mAP) is lower than others.
+
+  - SSD meta-architecture
+
+    The SSD meta-architecture is as follows (cited from [paper](https://arxiv.org/pdf/1611.10012.pdf)):
+
+    <img src="/others/SSD.png" width="600" height="300">
 
 
 
