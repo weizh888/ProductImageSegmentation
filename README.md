@@ -67,8 +67,8 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 
   - Using Open Sources for Model Training (*Propose to do*)
   I found two datasets that are useful for this project:
-    - http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html: can be downloaded directly.
-    - [DeepFashion Database](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html): need to sign the agreement for some dataset.
+    - [Apparel classification with Style Dataset](http://www.vision.ee.ethz.ch/~lbossard/projects/accv12/index.html): can be downloaded directly.
+    - [DeepFashion Database](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html): need to sign the [agreement](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/DeepFashionAgreement.pdf) for some dataset.
 
 #### Generate TFRecord files for TensorFlow
 1. Convert XML to CSV
