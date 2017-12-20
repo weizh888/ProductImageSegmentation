@@ -45,13 +45,15 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 ## Usage
 
 ### Prepare the Training and Testing Datasets
-The images in the raw .zip file are not labeled, and I didn't find some open images that share the same categories, so I decided to manually label as many samples as I can using [LabelImg](https://github.com/tzutalin/labelImg). It is also worthy to try another annotation tool [FIAT](https://github.com/christopher5106/FastAnnotationTool) in the future.
+  The images in the raw .zip file are not labeled, and I didn't find some open images that share the same categories, so I decided to manually label as many samples as I can using [LabelImg](https://github.com/tzutalin/labelImg). The annotations are saved as XML files in PASCAL VOC format, and can be converted to TFrecord files.
+
+  It is also worthy to try another annotation tool [FIAT](https://github.com/christopher5106/FastAnnotationTool) in the future, which saves the annotations in the RotatedRect format, instead of the Rect format.
 
 - Manually Labelling
 
     Create labels based on https://shopee.sg/search/?keyword=women+apparel&subcategory.
 
-    Testd the category *Pants_Leggings* First.
+    Testd the category _**Pants_Leggings**_ First.
 
     Simply run
     ```
