@@ -200,19 +200,20 @@ The total loss reaches ~1.0 in the training dataset and the mAP@IoU≥0.5 reache
 ### Evaluation Examples
 #### Examples in one-class model
 The category is _**'Pants_Leggings'**_.
+
 <img src="/model_one_class/images/00.png" width="300" height="300"> <img src="/model_one_class/images/01.png" width="300" height="300">
 
 For more examples, check [examples](/model_one_class/images).
 
 #### Examples in six-class model
 
-  The six categories that are manually labeled:
-  _**'Pants_Leggings', 'Dresses', 'Skirts', 'Tops', 'Shorts', 'Lingerie'**_
+The six categories that are manually labeled:
+_**'Pants_Leggings', 'Dresses', 'Skirts', 'Tops', 'Shorts', 'Lingerie'**_.
 
-  <img src="/model_six_classes/images/00.png" width="300" height="300"> <img src="/model_six_classes/images/06.png" width="300" height="300">
-  <img src="/model_six_classes/images/57.png" width="300" height="300"> <img src="/model_six_classes/images/96.png" width="300" height="300">
+<img src="/model_six_classes/images/00.png" width="300" height="300"> <img src="/model_six_classes/images/06.png" width="300" height="300">
+<img src="/model_six_classes/images/57.png" width="300" height="300"> <img src="/model_six_classes/images/96.png" width="300" height="300">
 
-  `Pants_Leggings`, `Dresses` and `Tops` are relatively easy to segment, but sometimes the model cannot identify `Dresses` and `Skirts`, `Skirts` and `Shorts`.
+`Pants_Leggings`, `Dresses` and `Tops` are relatively easy to segment, but sometimes the model cannot identify `Dresses` and `Skirts`, `Skirts` and `Shorts`.
 
 ### Conclusion and More Thoughts
 
