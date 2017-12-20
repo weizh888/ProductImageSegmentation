@@ -10,11 +10,16 @@ Wait to add more information.
 - [Usage](#usage)
   - [Prepare the Training and Testing Datasets](#prepare-the-training-and-testing-datasets)
   - [Running Locally (Windows 10 64-bit)](#running-locally-windows-10-64-bit)
-    - [Train the Model](#train-the-model)
-    - [Evaluate the Model](#evaluate-the-model)
+    - [Train the model](#train-the-model)
+    - [Evaluate the model](#evaluate-the-model)
   - [Running on Google Cloud Platform (Ubuntu)](#running-on-google-cloud-platform-(ubuntu))
     - [Submit training job](#submit-training-job)
-    - [Evaluate the Model](#evaluate-the-model)
+    - [Submit evaluation job](#submit-evaluation-job)
+    - [Export the model](#export-the-model)
+- [Results](#results)
+  - [Total Loss and Precision](#total-loss-and-precision)
+  - [Evaluation Examples](#evaluation-examples)
+- [Conclusion and More Thoughts](#conclusion-and-more-thoughts)
 
 ## Basic Installation
 In order to run the project, you will need Python, pip and the relative libraries.
@@ -156,7 +161,7 @@ gcloud ml-engine jobs submit training ${JOB_NAME} \
 
   Graph Visualization: `tensorboard --logdir=gs://${TRAIN_DIR} --port 8080`
 
-#### Evaluate the model
+#### Submit evaluation job
 ```
 gcloud ml-engine jobs submit training ${JOB_NAME}_eval \
     --job-dir=gs://${TRAIN_DIR} \
