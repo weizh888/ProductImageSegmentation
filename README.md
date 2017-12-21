@@ -140,9 +140,13 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 ## Usage
 
 ### Prepare the Training and Testing Datasets
+<<<<<<< HEAD
   The images in the raw .zip file are not labeled, and I didn't find some open images that share the same categories, so I decided to manually label as many samples as I can using [LabelImg](https://github.com/tzutalin/labelImg). The annotations are saved as XML files in PASCAL VOC format, and can be converted to TFRecord files.
+=======
+  The images in the raw .zip file are not labeled, and I didn't find any database for labeled images that share the same categories, so I decided to manually label as many samples as I can using [LabelImg](https://github.com/tzutalin/labelImg). The annotations are saved as XML files in PASCAL VOC format, and can be converted to TFrecord files.
+>>>>>>> 49f6dd0b2346059742dd192106784d8e52bc6db3
 
-  It is also worthy to try another annotation tool [FIAT](https://github.com/christopher5106/FastAnnotationTool) in the future, which saves the annotations in the RotatedRect format (`path,class,center_x,center_y,w,h,o`), instead of the Rect format (`path,class,x,y,w,h`).
+  It is also worth trying another annotation tool [FIAT](https://github.com/christopher5106/FastAnnotationTool) in future, which saves the annotations in the RotatedRect format (`path,class,center_x,center_y,w,h,o`), instead of the Rect format (`path,class,x,y,w,h`).
 
 #### Manually labelling
 
