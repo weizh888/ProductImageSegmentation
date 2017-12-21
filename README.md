@@ -28,7 +28,7 @@ The project intends to perform the image segmentation task in the “Women's App
 ## Model Selection
 The image segmentation task is actually an object detection task. Based on convolutional neural networks (CNNs), modern object detectors, such as [Faster R-CNN](https://arxiv.org/abs/1506.01497), [R-FCN](https://arxiv.org/abs/1605.06409) and [SSD](https://arxiv.org/abs/1512.02325), are able to give very good predictions.
 
-**Speed** is the main factor to be considered for model selection given the time constraint of this project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with checkpoint is available on [TenforFlow Object Detectoin API](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz). (The training takes more than two weeks as mentioned in the paper.)
+**Speed** is the main factor to be considered for model selection given the time constraint of this project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with [checkpoint](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz) is available on [TenforFlow Object Detectoin API](https://github.com/tensorflow/models/tree/master/research/object_detection). (The training takes more than two weeks as mentioned in the paper.)
 
 ### Speed-Accuracy Tradeoff
 
@@ -140,7 +140,7 @@ git clone git@github.com:weizh888/ProductImageSegmentation.git
 ## Usage
 
 ### Prepare the Training and Testing Datasets
-  The images in the raw .zip file are not labeled, and I didn't find some open images that share the same categories, so I decided to manually label as many samples as I can using [LabelImg](https://github.com/tzutalin/labelImg). The annotations are saved as XML files in PASCAL VOC format, and can be converted to TFrecord files.
+  The images in the raw .zip file are not labeled, and I didn't find some open images that share the same categories, so I decided to manually label as many samples as I can using [LabelImg](https://github.com/tzutalin/labelImg). The annotations are saved as XML files in PASCAL VOC format, and can be converted to TFRecord files.
 
   It is also worthy to try another annotation tool [FIAT](https://github.com/christopher5106/FastAnnotationTool) in the future, which saves the annotations in the RotatedRect format (`path,class,center_x,center_y,w,h,o`), instead of the Rect format (`path,class,x,y,w,h`).
 
@@ -306,7 +306,7 @@ _**'Pants_Leggings', 'Dresses', 'Skirts', 'Tops', 'Shorts', 'Lingerie'**_.
 
 ### Conclusion and More Thoughts
 
-  * The datasets used for training and validation are 2000 manually labelled images from the raw .zip file. The first step was to use only one category for segmentation. Then 6 categories were used for modelling.
+  * The datasets used for training and validation are 911 manually labelled images from the raw .zip file. The first step was to use only one category for segmentation. Then 6 categories were used for modelling.
 
   * The model used is based on the pre-trained [ssd_mobilenet_v1_coco](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz) model from [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection), due to its fast speed. Model training part was mainly completed on google cloud platform. Manually labelling, visualization and some pre-training work were done on a windows PC.
 
