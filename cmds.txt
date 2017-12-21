@@ -1,4 +1,4 @@
-python labelImg.py 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples' '.\data\predefined_classes.txt'
+python labelImg.py 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples' 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\data\predefined_classes.txt'
 
 labelImg 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\samples' 'C:\Users\Wei Zhang\Documents\GitHub\ProductImageSegmentation\labelImg\data\predefined_classes.txt'
 
