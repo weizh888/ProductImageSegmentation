@@ -28,7 +28,7 @@ The project intends to perform the image segmentation task in the “Women's App
 ## Model Selection
 The image segmentation task is actually an object detection task. Based on convolutional neural networks (CNNs), modern object detectors, such as [Faster R-CNN](https://arxiv.org/abs/1506.01497), [R-FCN](https://arxiv.org/abs/1605.06409) and [SSD](https://arxiv.org/abs/1512.02325), are able to give very good predictions.
 
-**Speed** is the main factor to be considered for model selection given the time constraint of this project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with [checkpoint](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz) is available on [TenforFlow Object Detectoin API](https://github.com/tensorflow/models/tree/master/research/object_detection). (The training takes more than two weeks as mentioned in the paper.)
+**Speed** is the main factor to be considered for model selection given the time constraint of this project. The meta-architecture used is SSD: Single Shot MultiBox Detector descriped in the [paper](https://www.cs.unc.edu/~wliu/papers/ssd.pdf), and the feature extractor used is [mobilenet](https://arxiv.org/pdf/1704.04861.pdf). A pre-trained model with [checkpoint](http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_17.tar.gz) is available on [TenforFlow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection). (The training takes more than two weeks as mentioned in the paper.)
 
 ### Speed-Accuracy Tradeoff
 
